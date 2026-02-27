@@ -105,6 +105,7 @@ export default function HomeHero({ data }) {
             backgroundImage: `url(${bgImageUrl || "#111"})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
+            backgroundColor: "#000821",
           }}
         />
       )}

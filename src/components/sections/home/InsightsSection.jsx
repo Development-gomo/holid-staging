@@ -94,17 +94,22 @@ export default function InsightsSection({ data }) {
     <section id="insights" className="w-full bg-white py-16 md:py-20">
       <div className="web-width px-6">
 
-         {/* Text Above Heading */}
-         {text_above_heading && (
-        <div className="flex items-center justify-center gap-2 text-black/60 text-xs md:text-sm">
-          <span className="inline-block w-1.5 h-1.5 bg-[#2D5BFF] rounded-sm" />
-          <span>{text_above_heading}</span>
-        </div>
-          )}
+        {/* Text Above Heading */}
+        {text_above_heading && (
+          <div className="flex justify-center mb-4">
+            <div className="inline-flex flex-col items-center">
+              <div className="inline-flex items-center justify-center gap-2">
+                <span className="w-[5px] h-[5px] bg-[#2A3EF4] block" aria-hidden="true" />
+                <p className="sub-heading-above !text-[12px] !leading-[26px] text-[#90979F]">{text_above_heading}</p>
+              </div>
+              <div className="w-full border-b border-dashed border-black/20" />
+            </div>
+          </div>
+        )}
 
         {/* Main Heading */}
         {main_heading && (
-        <h2 className="mt-6 text-center text-black font-[Merriweather] font-medium text-4xl md:text-6xl leading-[1.05] max-w-3xl mx-auto">
+        <h2 className="mt-6 text-center text-black font-[Merriweather] !text-[32px] !sm:text-[32px] md:!text-[56px] font-bold font-bold mx-auto">
           {main_heading}
         </h2>
           )}
@@ -158,47 +163,75 @@ export default function InsightsSection({ data }) {
               }
 
               return (
-                <article key={post?.id} className="p-4 ring-1 ring-black/5 flex flex-col">
-                  {/* Image (only render if present) */}
-                  {img ? (
-                    <div className="relative w-full h-[170px] overflow-hidden bg-black/10">
-                      <Image
-                        src={img}
-                        alt={title || "Post image"}
-                        fill
-                        className="object-cover"
-                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                      />
-                    </div>
-                  ) : null}
-
-                  {/* Category tag */}
-                  {category ? (
-                    <div className="mt-5 inline-flex">
-                      <span className="text-[11px] md:text-xs px-3 py-1 text-[#2D5BFF]" style={{ backgroundColor: '#DBE2E9' }}>
+                <article key={post?.id} className="p-5 flex flex-col h-full" style={{ backgroundColor: 'rgba(219, 226, 233, 0.35)' }}>
+                  <div className="flex items-center justify-between gap-3">
+                    {category ? (
+                      <span
+                        className=""
+                        style={{
+                          fontSize: '12px',
+                          color: '#2D5BFF',
+                          fontWeight: 400,
+                        }}
+                      >
                         {category}
                       </span>
-                    </div>
-                  ) : null}
+                    ) : <span />}
+                    {date ? (
+                      <span
+                        className=""
+                        style={{
+                          fontSize: '12px',
+                          color: '#90979F',
+                          fontWeight: 400,
+                        }}
+                      >
+                        {date}
+                      </span>
+                    ) : null}
+                  </div>
 
-                  {/* Title */}
-                  <h3 className="mt-4 font-medium" style={{ color: '#1F1C1C', fontFamily: 'Inter', fontSize: '18px', fontWeight: 500, lineHeight: '26px' }}>
+                  <h3
+                    className="mt-8 font-medium line-clamp-2"
+                    style={{
+                      color: '#1F1C1C',
+                      fontFamily: 'Inter',
+                      fontSize: '18px',
+                      fontWeight: 500,
+                      lineHeight: '26px',
+                      display: '-webkit-box',
+                      WebkitBoxOrient: 'vertical',
+                      WebkitLineClamp: 2,
+                      overflow: 'hidden',
+                    }}
+                  >
                     {title}
                   </h3>
 
-                  {/* Date */}
-                  {date ? (
-                    <p className="mt-3" style={{ color: '#90979F', fontFamily: 'Inter', fontSize: '12px', fontWeight: 400, lineHeight: '24px' }}>{date}</p>
+                  {excerpt ? (
+                    <p
+                      className="mt-4 line-clamp-4"
+                      style={{
+                        fontSize: '14px',
+                        color: '#90979F',
+                        lineHeight: '22px',
+                        fontWeight: 400,
+                        display: '-webkit-box',
+                        WebkitBoxOrient: 'vertical',
+                        WebkitLineClamp: 4,
+                        overflow: 'hidden',
+                      }}
+                    >
+                      {excerpt}
+                    </p>
                   ) : null}
 
-                  {/* Button */}
                   <div className="mt-auto pt-6">
                     <Link
                       href={href || "#"}
-                      className="inline-flex items-center gap-2 bg-[#2D5BFF] text-white text-xs md:text-sm px-5 py-3"
+                      className="inline-flex items-center btn-blue gap-2 bg-[#2D5BFF] text-white text-xs md:text-sm px-5 py-3"
                       aria-label={`Read article: ${title}`}
                     >
-                      <span className="inline-block w-1.5 h-1.5 bg-white" />
                       Read article
                     </Link>
                   </div>

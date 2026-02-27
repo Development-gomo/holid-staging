@@ -183,6 +183,21 @@ margin-top: 200px;
   margin-top: 20px !important;
   margin-bottom: 20px !important;
   line-height: 1.2;}
+
+/* Simple line-clamp utilities for cards (uses -webkit-box) */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
   
 .w-3.h-3.bg-blue-600.block.rounded-sm{
 border-radius: 0;
@@ -193,4 +208,9 @@ height: 5px !important;
 a.block-btn{
   display: block;
   margin-top: 30px;
+}
+@media (max-width: 640px) {
+  h1.banner-heading {
+    font-size: 40px !important;
+  }
 }

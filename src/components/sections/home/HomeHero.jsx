@@ -86,7 +86,7 @@ export default function HomeHero({ data }) {
 
   return (
     <section id="main-hero" className="w-full relative flex flex-col md:flex-row items-center justify-between 
-    min-h-[682px] py-12  md:py-16">
+    min-h-[682px] pb-12 md:py-16">
       {/* Full-width background section */}
       {bgVideo ? (
         <video
@@ -110,13 +110,13 @@ export default function HomeHero({ data }) {
       )}
 
       {/* Content container - added gap-[10%] for spacing between columns */}
-      <div className="web-width  px-6 pt-20 pb-4 relative z-10 flex w-full flex-col md:flex-row md:gap-[10%]">
+      <div className="web-width px-6 pt-36 sm:pt-36 md:pt-20 pb-4 relative z-10 flex w-full flex-col md:flex-row md:gap-[10%]">
         {/* Left side (50%) for Title, Subtitle, and Button */}
         <div className="w-full md:w-1/2 text-white">
-          <h1 className="text-4xl font-bold">{data?.heading}</h1>
+          <h1 className="banner-heading text-4xl font-bold">{data?.heading}</h1>
 
           {data?.subheading && (
-            <p className="mt-3 max-w-xl !text-[18px] !font-normal !leading-[26px] mb-32">{data.subheading}</p>
+            <p className="mt-6 max-w-xl !text-[18px] !font-normal !leading-[26px] mb-32">{data.subheading}</p>
           )}
 
           {data?.button_label && data?.button_url && (
@@ -130,7 +130,7 @@ export default function HomeHero({ data }) {
         </div>
 
         {/* Right side (40%) for logo gallery - removed pl-6, adjusted width */}
-        <div className="w-full md:w-[40%] mt-big">
+        <div className="w-full md:w-[40%] mt-10 md:mt-[200px]">
           {/* Loop through logo_gallery ACF field and display logos */}
           <div className="mt-6 grid grid-cols-3 gap-0">
             {visibleLogos.map((logo, index) => {
@@ -142,9 +142,29 @@ export default function HomeHero({ data }) {
                 return (
                   <div
                     key={index}
-                    className={`flex justify-center items-center p-6 border-dashed border-white/20
-                      ${!isLastColumn ? 'border-r' : ''} 
-                      ${!isLastRow ? 'border-b' : ''}`}
+                    className="flex justify-center items-center p-6"
+                    style={{
+                      backgroundImage: [
+                        !isLastColumn
+                          ? 'repeating-linear-gradient(180deg, rgba(255,255,255,1) 0px, rgba(255,255,255,1) 2px, transparent 2px, transparent 5px)'
+                          : null,
+                        !isLastRow
+                          ? 'repeating-linear-gradient(90deg, rgba(255,255,255,1) 0px, rgba(255,255,255,1) 2px, transparent 2px, transparent 5px)'
+                          : null,
+                      ].filter(Boolean).join(', ') || 'none',
+                      backgroundSize: [
+                        !isLastColumn ? '0.5px 5px' : null,
+                        !isLastRow ? '5px 0.5px' : null,
+                      ].filter(Boolean).join(', ') || 'auto',
+                      backgroundPosition: [
+                        !isLastColumn ? 'right 0' : null,
+                        !isLastRow ? '0 bottom' : null,
+                      ].filter(Boolean).join(', ') || '0 0',
+                      backgroundRepeat: [
+                        !isLastColumn ? 'repeat-y' : null,
+                        !isLastRow ? 'repeat-x' : null,
+                      ].filter(Boolean).join(', ') || 'no-repeat',
+                    }}
                   >
                     <div className="relative h-12 w-full overflow-hidden flex items-center justify-center">
                       {logoUrl ? (

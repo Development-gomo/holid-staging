@@ -9,9 +9,9 @@ export default function HomeUsp({ data }) {
   const usps = data?.usps || [];
 
   return (
-    <section id="main-usp" className="w-full pt-0 pb-12 bg-drk">
+    <section id="main-usp" className="w-full mt-[-1px] pt-0 pb-15 bg-drk">
       {/* Content container */}
-      <div className="web-width px-6 pb-10 flex flex-col items-center">
+      <div className="web-width px-6  flex flex-col items-center">
         {/* Main USP Video */}
         {uspVideo && (
           <div
@@ -21,7 +21,7 @@ export default function HomeUsp({ data }) {
               boxShadow: "0 0 0 1.5px rgba(255,255,255,0.08), 0 32px 80px 0 rgba(0,0,0,0.55)",
             }}
           >
-            <div className="w-[974.651px] h-[482.403px] overflow-hidden ">
+            <div className="w-auto h-auto overflow-hidden lg:w-[974.651px] lg:h-[482.403px]">
               <video
                 src={uspVideo}
                 autoPlay
@@ -35,7 +35,7 @@ export default function HomeUsp({ data }) {
         )}
 
         {/* USP Repeater (Three USPs in a Row) */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-[145px] mt-20">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-[145px] mt-11 lg:mt-20">
           {usps.map((usp, index) => {
             const uspIconUrl = usp?.usp_icon || '';
             const usp_title = usp?.usp_title || '';

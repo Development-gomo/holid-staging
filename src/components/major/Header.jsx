@@ -76,12 +76,12 @@ export default function Header() {
             <div className="flex items-center shrink-0">
               {logo?.url ? (
                 <Link href="/">
-                  <div className="relative w-[140px] h-[40px]">
+                  <div className="relative w-[100px] h-[31px]">
                     <Image
                       src={logo.url}
-                      alt="Website Logo"
+                      alt="Websdddsdsite Logo"
                       fill
-                      sizes="140px"
+                      sizes="100px"
                       className="object-contain"
                       priority
                     />

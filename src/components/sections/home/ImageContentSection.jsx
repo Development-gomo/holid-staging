@@ -20,17 +20,25 @@ export default function ImageContentSection({ data, index }) {
   const isImageOnRight = image_position === 'right';
 
   return (
-    <section className="w-full py-12">
+    <section className="w-full py-[20px] pt-10 md:py-12">
       <div className="web-width px-6 relative">
-        <div className="hidden md:block absolute top-0 bottom-0 left-1/2 -translate-x-1/2 border-l border-dashed border-[#DBE2E9]" />
-        <div className="w-full grid grid-cols-1 gap-8 md:items-start md:grid-cols-[minmax(0,1fr)_64px_32px_64px_minmax(0,1fr)]">
+        <div
+          className="hidden md:block absolute top-0 bottom-0 left-1/2 -translate-x-1/2"
+          style={{
+            width: '0.5px',
+            backgroundImage: 'repeating-linear-gradient(180deg, #B9C0C7 0px, #B9C0C7 2px, transparent 2px, transparent 4px)',
+            backgroundSize: '0.5px 4px',
+            backgroundRepeat: 'repeat-y',
+          }}
+        />
+        <div className="w-full grid grid-cols-1 gap-8 md:gap-0 md:items-start md:grid-cols-[minmax(0,1fr)_64px_32px_64px_minmax(0,1fr)]">
 
           {/* Image Column */}
-          <div className={`w-full ${isImageOnRight ? 'order-2 md:order-none md:col-start-5 md:row-start-1' : 'order-1 md:order-none md:col-start-1 md:row-start-1'}`}>
+          <div className={`w-full order-1 md:order-none ${isImageOnRight ? 'md:col-start-5 md:row-start-1' : 'md:col-start-1 md:row-start-1'}`}>
             <div className="relative">
               {bg && (
                 <div
-                  className="absolute inset-0 rounded-xl overflow-hidden"
+                  className="absolute inset-0  overflow-hidden"
                   style={{
                     backgroundImage: `url(${bg})`,
                     backgroundSize: 'cover',
@@ -41,8 +49,8 @@ export default function ImageContentSection({ data, index }) {
 
               {fg && (
                 <div
-                  className="relative z-10"
-                  style={{ padding: "105px 56px" }}
+                  className="relative z-10 md:py-[105px] md:px-[56px] py-[74px] px-[40px]"
+                  
                 >
                   <Image
                     src={fg}
@@ -74,7 +82,7 @@ export default function ImageContentSection({ data, index }) {
                   alignItems: "center",
                 }}
               >
-                <span className="text-xs text-[#6B7280]">{index}</span>
+                <span className="text-[16px] leading-[24px] text-[#1F1C1C]">{index}</span>
               </div>
             ) : (
               <div className="w-8 h-8" />
@@ -82,14 +90,36 @@ export default function ImageContentSection({ data, index }) {
           </div>
 
           {/* Content Column */}
-          <div className={`w-full flex flex-col justify-start ${isImageOnRight ? 'order-1 md:order-none md:col-start-1 md:row-start-1' : 'order-2 md:order-none md:col-start-5 md:row-start-1'}`}>
+          <div className={`w-full flex flex-col justify-start order-2 md:order-none ${isImageOnRight ? 'md:col-start-1 md:row-start-1 md:self-center' : 'md:col-start-5 md:row-start-1 md:self-center'}`}>
+            {/* Static number above heading for mobile */}
+            {typeof index === 'number' && index > 0 && (
+              <div className="flex md:hidden justify-start mb-6 md:mb-2">
+                <div
+                  style={{
+                    borderRadius: "16px",
+                    border: "1px solid #FFF",
+                    background: "#FFF",
+                    boxShadow: "0 3px 6px 0 #DBE2E9",
+                    display: "flex",
+                    width: "32px",
+                    height: "32px",
+                    padding: "4px 1px",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <span className="text-[16px] leading-[24px] text-[#1F1C1C]">{index}</span>
+                </div>
+              </div>
+            )}
             {content_section_title && (
-              <h3 className="mt-0 text-2xl md:text-3xl font-semibold mb-4">{content_section_title}</h3>
+              <p className="mt-0 !leading-[28px] !text-[24px] text-[#1F1C1C] font-semibold mb-4">{content_section_title}</p>
             )}
 
             {short_description && (
               <div
-                className="text-zinc-600 mb-6"
+                className="text-[16px] leading-[24px] text-[#1F1C1C]"
                 dangerouslySetInnerHTML={{ __html: short_description }}
               />
             )}

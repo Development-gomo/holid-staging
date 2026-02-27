@@ -8,32 +8,33 @@ export default function SpeacialHeading({ data }) {
   const text_below_heading = data?.text_below_heading || '';
 
   return (
-    <section className="w-full py-12">
+    <section className="w-full pt-[60px] pb-[00px] md:py-12">
       <div className="web-width px-6">
         <div className="max-w-3xl mx-auto text-center">
 
-          {/* Small label with blue square to the left */}
+          {/* Small label with blue square + dashed border below, sized to label width */}
           {text_above_heading && (
-            <div className="inline-flex items-center justify-center gap-3 mb-4">
-              <span className="w-3 h-3 bg-blue-600 block rounded-sm" aria-hidden="true" />
-              <p className="sub-heading-above">{text_above_heading}</p>
+            <div className="inline-flex flex-col items-center mb-4">
+              <div className="inline-flex items-center justify-center gap-2">
+                <span className="w-[5px] h-[5px] bg-[#2A3EF4] block" aria-hidden="true" />
+                <p className="sub-heading-above !text-[12px] !leading-[26px] text-[#90979F]">{text_above_heading}</p>
+              </div>
+              <div className="w-full border-b border-dashed border-black/20 dark:border-white/30" />
             </div>
           )}
 
           {/* Main heading */}
           {main_heading && (
             <h2
-              className="special-heading"
+              className="special-heading !text-[32px] !sm:text-[32px] md:!text-[56px] font-bold font-bold"
               dangerouslySetInnerHTML={{ __html: main_heading }}
             />
           )}
 
-          {/* Dotted / dashed divider and supporting text below */}
-          <div className="mt-6 pt-6 border-t border-dashed border-black/20">
-            {text_below_heading && (
-              <p className="sub-heading-above">{text_below_heading}</p>
-            )}
-          </div>
+          {/* Supporting text below */}
+          {text_below_heading && (
+            <p className="sub-heading-above mt-4">{text_below_heading}</p>
+          )}
 
         </div>
       </div>

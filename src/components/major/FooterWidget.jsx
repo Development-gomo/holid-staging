@@ -1,21 +1,26 @@
 "use client";
 
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 function extractTitleAndBody(html) {
   if (!html) return { title: "", body: "" };
+
+  // Only run in browser
+  if (typeof window === "undefined" || typeof DOMParser === "undefined") {
+    return { title: "", body: html };
+  }
+
   try {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");
 
-    // Prefer explicit heading or element with class 'widget-title'
     const heading = doc.querySelector(".widget-title, h1, h2, h3, h4, h5, h6");
     let title = "";
+
     if (heading) {
       title = heading.textContent.trim();
       heading.remove();
     } else {
-      // fallback: use first child text
       const first = doc.body.firstElementChild;
       if (first) {
         title = first.textContent.trim();
@@ -30,28 +35,42 @@ function extractTitleAndBody(html) {
   }
 }
 
-export default function FooterWidget({ html }) {
-  const { title, body } = useMemo(() => extractTitleAndBody(html), [html]);
+export default function FooterWidget({ html = "" }) {
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
   const [open, setOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  // Desktop: non-collapsible (normal). Other screens: collapsed by default.
+  // Run parsing ONLY on client after mount
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    const parsed = extractTitleAndBody(html);
+    setTitle(parsed.title);
+    setBody(parsed.body);
+    setMounted(true);
+  }, [html]);
+
+  // Handle desktop/mobile only after mount
+  useEffect(() => {
     const mq = window.matchMedia("(min-width: 1024px)");
     const setFromMq = () => {
       setIsDesktop(mq.matches);
       setOpen(mq.matches);
     };
+
     setFromMq();
-    if (mq.addEventListener) {
-      mq.addEventListener("change", setFromMq);
-      return () => mq.removeEventListener("change", setFromMq);
-    } else if (mq.addListener) {
-      mq.addListener(setFromMq);
-      return () => mq.removeListener(setFromMq);
-    }
+
+    mq.addEventListener?.("change", setFromMq) || mq.addListener(setFromMq);
+    return () => {
+      mq.removeEventListener?.("change", setFromMq) || mq.removeListener(setFromMq);
+    };
   }, []);
+
+  // IMPORTANT: keep server + first client render consistent
+  // Render a stable skeleton until mounted to avoid mismatch.
+  if (!mounted) {
+    return <div className="widget" />; // or a small placeholder
+  }
 
   if (isDesktop) {
     return (

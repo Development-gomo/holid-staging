@@ -27,7 +27,7 @@ export default function ServicesSlider({ data }) {
     text_below_heading,
     apiBase,
     restBase = "services",
-    limit = 6,
+    limit = 10,
     hrefBase = "/services",
   } = data;
 

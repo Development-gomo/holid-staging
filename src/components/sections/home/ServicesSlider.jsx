@@ -172,15 +172,20 @@ export default function ServicesSlider({ data }) {
     >
       <div className="web-width px-6">
         {/* Text Above Heading */}
-        <div className="flex items-center justify-center gap-2 text-white/55 text-xs md:text-sm">
-          <span className="inline-block w-1.5 h-1.5 bg-[#2D5BFF] rounded-sm" />
-          <span>{text_above_heading}</span>
+        <div className="flex justify-center mb-4">
+          <div className="inline-flex flex-col items-center">
+            <div className="inline-flex items-center justify-center gap-2">
+              <span className="w-[5px] h-[5px] bg-[#2A3EF4] block" aria-hidden="true" />
+              <p className="sub-heading-above !text-[12px] !leading-[26px] text-white/60">{text_above_heading}</p>
+            </div>
+            <div className="w-full border-b border-dashed border-white/30" />
+          </div>
         </div>
 
         {/* Main Heading */}
         <h2
-          className="mt-6 text-center text-white whitespace-pre-line font-[Merriweather] font-medium
-                     text-4xl md:text-6xl leading-[1.05] max-w-3xl mx-auto"
+          className="mt-6 text-center text-white whitespace-pre-line font-[Merriweather] 
+                     !text-[32px] !sm:text-[32px] md:!text-[56px] font-bold font-bold mx-auto max-w-3xl"
         >
           {main_heading}
         </h2>
@@ -240,20 +245,20 @@ export default function ServicesSlider({ data }) {
                     <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0,0,0,0.001)' }} />
 
                     {/* Top row: title + icon button */}
-                    <div className="absolute inset-x-0 top-0 p-6 flex items-start justify-between">
-                      <p className="text-white text-lg md:text-xl font-medium">{title}</p>
+                    <div className="absolute inset-x-0 top-0 p-8 flex items-start justify-between">
+                      <p className="text-white text-lg md:!text-2xl leading-[26px] font-medium">{title}</p>
 
                       <Link
                         href={href || "#"}
                         className="w-10 h-10 rounded-full bg-white/90 text-black flex items-center justify-center
-                                   hover:bg-white transition"
+                                   hover:bg-white  transition"
                         aria-label={`Open ${title}`}
                       >
                         {serviceIconUrl ? (
                           <img
                             src={serviceIconUrl}
                             alt={`${title} icon`}
-                            className="w-[18px] h-[18px] object-contain"
+                            className="w-[20px] h-[20px] object-contain"
                           />
                         ) : (
                           <Icon type={iconTypeByIndex(idx)} />
@@ -262,18 +267,17 @@ export default function ServicesSlider({ data }) {
                     </div>
 
                     {/* Bottom content */}
-                    <div className="absolute inset-x-0 bottom-0 p-6">
+                    <div className="absolute inset-x-0 bottom-0 p-8">
                       <p className="text-white/85 text-xs md:text-sm leading-relaxed max-w-[34ch] transform transition-transform duration-300 translate-y-0 group-hover:-translate-y-3">
                         {excerpt}
                       </p>
 
-                      <div className="mt-4 transition-opacity duration-200 opacity-0 group-hover:opacity-100">
+                      <div className="btn-bluemt-4 transition-opacity duration-200 opacity-0 group-hover:opacity-100">
                         <Link
                           href={href || "#"}
-                          className="inline-flex items-center gap-2 bg-[#2D5BFF] text-white text-xs md:text-sm
+                          className="inline-flex btn-blue items-center gap-2 bg-[#2D5BFF] text-white text-xs md:text-sm
                                      px-4 py-2"
                         >
-                          <span className="inline-block w-1.5 h-1.5 bg-white" />
                           Read more
                         </Link>
                       </div>

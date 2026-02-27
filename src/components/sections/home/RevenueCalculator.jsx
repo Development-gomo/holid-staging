@@ -213,7 +213,7 @@ export default function RevenueCalculatorSection({
                         type="button"
                         onClick={() => setTier(v)}
                         className={[
-                          "py-3 text-xs font-bold transition",
+                          "py-3  text-xs font-bold transition",
                           active
                             ? "bg-[#DDE2FF] text-slate-900"
                             : "bg-white text-slate-500 hover:text-slate-700",

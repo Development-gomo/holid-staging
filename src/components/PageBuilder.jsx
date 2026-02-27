@@ -12,6 +12,7 @@ const RevenueCalculator = dynamic(() => import("./sections/home/RevenueCalculato
 const TestimonialSlider = dynamic(() => import("./sections/home/TestimonialSlider"));
 const InnerPageBanner = dynamic(() => import("./sections/home/InnerPageBanner"));
 const ContactSection = dynamic(() => import("./sections/inner/ContactSection"));
+const InnerImageContentSection = dynamic(() => import("./sections/inner/InnerImageContentSection"));
 
 export default function PageBuilder({ sections }) {
   if (!sections || !sections.length) return null;
@@ -88,6 +89,9 @@ export default function PageBuilder({ sections }) {
 
           case "contact_section":
             return <ContactSection key={index} data={block} />;
+
+          case "inner_image_content_section":
+            return <InnerImageContentSection key={index} data={block} />;
 
           default:
             return null;

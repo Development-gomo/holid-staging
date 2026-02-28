@@ -14,6 +14,7 @@ export default function BlogPostContent({ post }) {
   const featuredMedia = post?._embedded?.["wp:featuredmedia"]?.[0];
   const categories = post?._embedded?.["wp:term"]?.[0] || [];
   const author = post?._embedded?.["author"]?.[0];
+  const blogAuthor = post?.acf?.blog_author || post?.blog_author || post?.meta?.blog_author || "";
 
   const formatDate = (dateStr) => {
     try {
@@ -63,7 +64,7 @@ export default function BlogPostContent({ post }) {
                   {formattedDate}
                 </span>
               )}
-              {authorName && <span>By {authorName}</span>}
+              {blogAuthor && <span>By {blogAuthor}</span>}
               {primaryCategory && (
                 <span className="px-3 py-1 bg-white/20 text-white text-xs rounded-sm">
                   {primaryCategory}

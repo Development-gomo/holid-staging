@@ -250,4 +250,20 @@ a.block-btn{
   text-decoration: underline;
 }
 
-
+.insight-content .toc{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: rgba(219, 226, 233, 0.35);
+  padding: 20px;
+  border-radius: 8px;
+  display: inline-block;
+}
+.insight-content .toc h2{
+  font-size: 18px!important;
+  font-weight: 700!important;
+}
+.insight-content .toc ol {
+  margin-left: 20px;
+  list-style: decimal!important;
+  line-height: 1.6;
+}

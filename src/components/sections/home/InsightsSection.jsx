@@ -1,14 +1,13 @@
-'use client';
+"use client"; 
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { WP_BASE } from "@/config";
 import InsightsCardAlt from "./InsightsCardAlt";
 
 export default function InsightsSection({ data }) {
   if (!data) return null;
+
   const pathname = usePathname();
 
   // Destructure from ACF data
@@ -22,15 +21,21 @@ export default function InsightsSection({ data }) {
     card_variant,
   } = data;
 
-  const useAltCardDesign =
-    card_variant === "alt" || card_variant === "insights" || pathname === "/insights";
-
+  // Always use InsightsCardAlt (as requested)
   const API_BASE = (apiBase || WP_BASE || "").replace(/\/$/, "");
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const stripHtml = (html = "") =>
     html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+
+  // Decode WP entities like &#8211;
+  const decodeHtml = (str = "") => {
+    if (typeof window === "undefined") return str;
+    const txt = document.createElement("textarea");
+    txt.innerHTML = str;
+    return txt.value;
+  };
 
   const formatDate = (dateStr) => {
     try {
@@ -56,7 +61,6 @@ export default function InsightsSection({ data }) {
   };
 
   const getPrimaryCategory = (post) => {
-    // WP embeds terms as: _embedded["wp:term"] = [ [categories...], [tags...] ]
     const cats = post?._embedded?.["wp:term"]?.[0] || [];
     return cats?.[0]?.name || "";
   };
@@ -74,9 +78,7 @@ export default function InsightsSection({ data }) {
         if (!res.ok) throw new Error("Failed to fetch posts");
         const data = await res.json();
 
-        if (!cancelled && Array.isArray(data)) {
-          setPosts(data);
-        }
+        if (!cancelled && Array.isArray(data)) setPosts(data);
       } catch (e) {
         if (!cancelled) setPosts([]);
       } finally {
@@ -93,14 +95,18 @@ export default function InsightsSection({ data }) {
   return (
     <section id="insights" className="w-full bg-white py-16 md:py-20">
       <div className="web-width px-6">
-
         {/* Text Above Heading */}
         {text_above_heading && (
           <div className="flex justify-center mb-4">
             <div className="inline-flex flex-col items-center">
               <div className="inline-flex items-center justify-center gap-2">
-                <span className="w-[5px] h-[5px] bg-[#2A3EF4] block" aria-hidden="true" />
-                <p className="sub-heading-above !text-[12px] !leading-[26px] text-[#90979F]">{text_above_heading}</p>
+                <span
+                  className="w-[5px] h-[5px] bg-[#2A3EF4] block"
+                  aria-hidden="true"
+                />
+                <p className="sub-heading-above !text-[12px] !leading-[26px] text-[#90979F]">
+                  {text_above_heading}
+                </p>
               </div>
               <div className="w-full border-b border-dashed border-black/20" />
             </div>
@@ -109,23 +115,27 @@ export default function InsightsSection({ data }) {
 
         {/* Main Heading */}
         {main_heading && (
-        <h2 className="mt-6 text-center text-black font-[Merriweather] !text-[32px] !sm:text-[32px] md:!text-[56px] font-bold font-bold mx-auto">
-          {main_heading}
-        </h2>
-          )}
+          <h2 className="mt-6 text-center text-black font-[Merriweather] !text-[32px] !sm:text-[32px] md:!text-[56px] font-bold mx-auto">
+            {main_heading}
+          </h2>
+        )}
 
         {/* Text Below Heading */}
-         {text_below_heading && (
+        {text_below_heading && (
           <p className="mt-6 text-center text-black/60 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
-          {text_below_heading}
-           </p>
-          )}
+            {text_below_heading}
+          </p>
+        )}
 
         {/* Cards */}
-        <div className={`mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${useAltCardDesign ? "gap-6" : "gap-8"}`}>
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {loading ? (
             Array.from({ length: limit }).map((_, i) => (
-              <div key={i} className="p-4 ring-1 ring-black/5" style={{ backgroundColor: 'rgba(219, 226, 233, 0.35)' }}>
+              <div
+                key={i}
+                className="p-4 ring-1 ring-black/5"
+                style={{ backgroundColor: "rgba(219, 226, 233, 0.35)" }}
+              >
                 <div className="w-full h-[160px] bg-black/10" />
                 <div className="mt-5 h-5 w-20 bg-black/10" />
                 <div className="mt-3 h-6 w-full bg-black/10" />
@@ -136,106 +146,37 @@ export default function InsightsSection({ data }) {
             ))
           ) : posts.length ? (
             posts.map((post) => {
-              const title = stripHtml(post?.title?.rendered || "");
+              const titleRaw = post?.title?.rendered || "";
+              const excerptRaw = post?.excerpt?.rendered || "";
+
+              const title = decodeHtml(stripHtml(titleRaw));
+              const excerpt = decodeHtml(
+                stripHtml(excerptRaw)
+                  .replace(
+                    /\s*(\[\s*&hellip;\s*\]|\[\s*…\s*\]|&hellip;|…)\s*$/i,
+                    ""
+                  )
+                  .trim()
+              );
+
               const category = getPrimaryCategory(post);
               const date = formatDate(post?.date);
               const img = getFeaturedImage(post);
-              const excerpt = stripHtml(post?.excerpt?.rendered || "")
-                .replace(/\s*(\[\s*&hellip;\s*\]|\[\s*…\s*\]|&hellip;|…)\s*$/i, "")
-                .trim();
               const href = `${postsPath}/${post?.slug || ""}`.replace(/\/+$/, "");
 
-              if (useAltCardDesign) {
-                return (
-                  <InsightsCardAlt
-                    key={post?.id}
-                    post={{
-                      id: post?.id,
-                      title,
-                      category,
-                      date,
-                      excerpt,
-                      image: img,
-                      href,
-                    }}
-                  />
-                );
-              }
-
               return (
-                <article key={post?.id} className="p-5 flex flex-col h-full" style={{ backgroundColor: 'rgba(219, 226, 233, 0.35)' }}>
-                  <div className="flex items-center justify-between gap-3">
-                    {category ? (
-                      <span
-                        className=""
-                        style={{
-                          fontSize: '12px',
-                          color: '#2D5BFF',
-                          fontWeight: 400,
-                        }}
-                      >
-                        {category}
-                      </span>
-                    ) : <span />}
-                    {date ? (
-                      <span
-                        className=""
-                        style={{
-                          fontSize: '12px',
-                          color: '#90979F',
-                          fontWeight: 400,
-                        }}
-                      >
-                        {date}
-                      </span>
-                    ) : null}
-                  </div>
-
-                  <h3
-                    className="mt-8 font-medium line-clamp-2"
-                    style={{
-                      color: '#1F1C1C',
-                      fontFamily: 'Inter',
-                      fontSize: '18px',
-                      fontWeight: 500,
-                      lineHeight: '26px',
-                      display: '-webkit-box',
-                      WebkitBoxOrient: 'vertical',
-                      WebkitLineClamp: 2,
-                      overflow: 'hidden',
-                    }}
-                  >
-                    {title}
-                  </h3>
-
-                  {excerpt ? (
-                    <p
-                      className="mt-4 line-clamp-4"
-                      style={{
-                        fontSize: '14px',
-                        color: '#90979F',
-                        lineHeight: '22px',
-                        fontWeight: 400,
-                        display: '-webkit-box',
-                        WebkitBoxOrient: 'vertical',
-                        WebkitLineClamp: 4,
-                        overflow: 'hidden',
-                      }}
-                    >
-                      {excerpt}
-                    </p>
-                  ) : null}
-
-                  <div className="mt-auto pt-6">
-                    <Link
-                      href={href || "#"}
-                      className="inline-flex items-center btn-blue gap-2 bg-[#2D5BFF] text-white text-xs md:text-sm px-5 py-3"
-                      aria-label={`Read article: ${title}`}
-                    >
-                      Read article
-                    </Link>
-                  </div>
-                </article>
+                <InsightsCardAlt
+                  key={post?.id}
+                  post={{
+                    id: post?.id,
+                    title,
+                    category,
+                    date,
+                    excerpt,
+                    image: img, // InsightsCardAlt will show only if present
+                    href,
+                  }}
+                />
               );
             })
           ) : (

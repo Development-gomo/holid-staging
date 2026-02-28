@@ -1,7 +1,8 @@
+// app/insights/[slug]/page.jsx
+
 import { notFound } from "next/navigation";
-import InnerPageBuilder from "@/components/InnerPageBuilder";
-import BlogPostContent from "@/components/sections/insights/insightcontent";
-import RelatedPostsSlider from "@/components/sections/insights/RelatedPostsSlider";
+import BlogPostContent from "@/components/sections/insights/InsightContent";
+import RelatedInsightsSection from "@/components/sections/insights/RelatedInsightsSection";
 import { fetchMediaById } from "@/lib/api/wp";
 import { buildMetadataFromYoast } from "@/lib/seo";
 import { WP_BASE } from "@/config";
@@ -16,41 +17,9 @@ async function fetchPostBySlug(slug) {
 
     const data = await res.json();
     if (Array.isArray(data) && data.length) return data[0];
-    if (data && typeof data === "object" && data.id) return data;
     return null;
   } catch {
     return null;
-  }
-}
-
-async function fetchRelatedPosts(currentPost) {
-  const postId = currentPost?.id;
-  const categories = Array.isArray(currentPost?.categories) ? currentPost.categories : [];
-  const baseUrl = WP_BASE.replace(/\/$/, "");
-
-  const query = new URLSearchParams({
-    per_page: "8",
-    _embed: "",
-    orderby: "date",
-    order: "desc",
-  });
-
-  if (categories.length) {
-    query.set("categories", categories.join(","));
-  }
-
-  const url = `${baseUrl}/posts?${query.toString()}`;
-
-  try {
-    const res = await fetch(url, { next: { revalidate: 60 } });
-    if (!res.ok) return [];
-
-    const data = await res.json();
-    if (!Array.isArray(data)) return [];
-
-    return data.filter((item) => item?.id !== postId).slice(0, 6);
-  } catch {
-    return [];
   }
 }
 
@@ -93,7 +62,7 @@ async function resolveMediaIds(data) {
 }
 
 export default async function BlogSinglePage(props) {
-  const params = await props.params;
+  const params = await props.params; // ✅ FIX
   const slug = params?.slug;
 
   if (!slug) notFound();
@@ -101,44 +70,23 @@ export default async function BlogSinglePage(props) {
   const post = await fetchPostBySlug(slug);
   if (!post) notFound();
 
-  const relatedPosts = await fetchRelatedPosts(post);
-
-  const acf = post?.acf || {};
-  const builder = acf?.inner_page_builder || [];
-
-  const resolvedBuilder = await Promise.all(
-    (builder || []).map((section) => resolveMediaIds(section))
-  );
-
   return (
     <main className="min-h-screen">
-      {/* <section
-        className="w-full relative flex flex-col md:flex-row items-center justify-between min-h-[95vh] py-12 md:py-16"
-        style={{ backgroundColor: "#000821" }}
-      >
-        <div className="web-width px-6 py-10 relative z-10 flex w-full flex-col md:flex-row md:gap-[10%]">
-          <div className="w-full md:w-1/2 text-white">
-            <h1 className="text-4xl font-bold">Hoild Blog</h1>
-            <p className="mt-3 max-w-xl text-lg mb-32">
-              Discover insights, tips, and stories from our team. Stay updated with the latest trends and best practices in the industry.
-            </p>
-          </div>
-        </div>
-      </section> */}
-
       <BlogPostContent post={post} />
 
-      <RelatedPostsSlider posts={relatedPosts} postsPath="/blog" />
-
-      {resolvedBuilder.length > 0 && (
-        <InnerPageBuilder sections={resolvedBuilder} />
-      )}
+      <RelatedInsightsSection
+        currentPostId={post?.id}
+        categoryIds={post?.categories || []}
+        postsPath="/insights"
+        card_variant="alt"
+        heading="Related insights"
+      />
     </main>
   );
 }
 
 export async function generateMetadata(props) {
-  const params = await props.params;
+  const params = await props.params; // ✅ FIX
   const slug = params?.slug;
 
   if (!slug) return {};

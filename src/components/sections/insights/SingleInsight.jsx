@@ -1,4 +1,4 @@
-// src/components/sections/insights/InsightContent.jsx
+// src/components/sections/insights/SingleInsight.jsx
 
 "use client";
 

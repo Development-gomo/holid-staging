@@ -1,7 +1,7 @@
 // app/insights/[slug]/page.jsx
 
 import { notFound } from "next/navigation";
-import BlogPostContent from "@/components/sections/insights/InsightContent";
+import BlogPostContent from "@/components/sections/insights/SingleInsight";
 import RelatedInsightsSection from "@/components/sections/insights/RelatedInsightsSection";
 import { fetchMediaById } from "@/lib/api/wp";
 import { buildMetadataFromYoast } from "@/lib/seo";

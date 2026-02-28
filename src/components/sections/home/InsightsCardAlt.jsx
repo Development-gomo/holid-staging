@@ -70,7 +70,7 @@ export default function InsightsCardAlt({ post }) {
       {/* Title */}
       {title ? (
         <h3
-          className="mt-3 line-clamp-2"
+          className="mt-5 line-clamp-2"
           style={{
             color: "#1F1C1C",
             fontFamily:

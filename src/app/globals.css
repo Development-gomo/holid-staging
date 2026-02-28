@@ -258,6 +258,9 @@ a.block-btn{
   border-radius: 8px;
   display: inline-block;
 }
+.insight-content .toc a{
+  color: #171717!important;
+}
 .insight-content .toc h2{
   font-size: 18px!important;
   font-weight: 700!important;

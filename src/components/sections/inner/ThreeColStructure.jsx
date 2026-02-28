@@ -42,7 +42,8 @@ export default function ThreeColStructure({ data }) {
               <div key={idx} className="flex flex-col" style={style}>
                 {img ? (
                   <div className="w-full mb-4 overflow-hidden">
-                    <Image src={img} alt={title || ""} width={70} height={70} className="object-contain" />
+                   
+                    <Image src={img} alt={title || ""} width={70} height={70} className="object-contain" unoptimized/>
                   </div>
                 ) : null}
 

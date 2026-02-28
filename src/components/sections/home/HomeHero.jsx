@@ -86,7 +86,9 @@ export default function HomeHero({ data }) {
 
   return (
     <section id="main-hero" className="w-full relative flex flex-col md:flex-row items-center justify-between 
-    min-h-[682px] pb-12 md:py-16">
+    min-h-[682px] pb-12 md:py-16" style={{
+            backgroundColor: "#000821",
+          }}>
       {/* Full-width background section */}
       {bgVideo ? (
         <video

@@ -214,3 +214,38 @@ a.block-btn{
     font-size: 40px !important;
   }
 }
+
+/* ===== Custom Meta Block inside Blog Content ===== */
+
+.insight-content .container {
+  max-width: 100%;
+  padding: 0;
+  margin: 40px 0;
+}
+
+.insight-content .row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #f3f4f6; /* light grey */
+  border: 1px solid #e5e7eb;
+}
+
+.insight-content .col-sm {
+  padding: 14px 20px;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+.insight-content .col-sm + .col-sm {
+  border-left: 1px solid #e5e7eb;
+}
+
+.insight-content .col-sm a {
+  color: #2D5BFF;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.insight-content .col-sm a:hover {
+  text-decoration: underline;
+}

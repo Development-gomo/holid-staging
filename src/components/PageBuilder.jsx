@@ -12,7 +12,7 @@ const RevenueCalculator = dynamic(() => import("./sections/home/RevenueCalculato
 const TestimonialSlider = dynamic(() => import("./sections/home/TestimonialSlider"));
 const InnerPageBanner = dynamic(() => import("./sections/home/InnerPageBanner"));
 const ContactSection = dynamic(() => import("./sections/inner/ContactSection"));
-
+const InsightsListing = dynamic(() => import("./sections/insights/InsightsListing"));
 
 export default function PageBuilder({ sections }) {
   if (!sections || !sections.length) return null;
@@ -79,7 +79,7 @@ export default function PageBuilder({ sections }) {
             return <ServicesSlider key={index} data={block} />;
 
           case "insights_section": 
-            return <InsightsSection key={index} data={block} postsPath="/blog" />;
+            return <InsightsSection key={index} data={block} postsPath="/insights" />;
           
           case "calculator_section":
             return <RevenueCalculator key={index} data={block} />;
@@ -89,6 +89,9 @@ export default function PageBuilder({ sections }) {
 
           case "contact_section":
             return <ContactSection key={index} data={block} />;
+
+          case "insights_listing_section":
+            return <InsightsListing key={index} data={block} postsPath="/insights" />;
 
           default:
             return null;

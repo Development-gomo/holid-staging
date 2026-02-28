@@ -112,7 +112,7 @@ export default function ContentBlock({ data }) {
         ) : (
           /* Normal image + content layout */
           <div
-            className={`w-full flex flex-col md:flex-row gap-8 md:items-center ${
+            className={`w-full flex flex-col md:flex-row gap-16 md:items-center ${
               !isImageLeft ? "md:flex-row-reverse" : ""
             }`}
           >

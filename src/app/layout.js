@@ -2,6 +2,7 @@ import { Inter, Tinos } from "next/font/google"; // Importing the necessary Goog
 import "./globals.css";
 import Header from "@/components/major/Header"; // Global Header
 import Footer from "@/components/major/Footer"; // Global Footer
+import NextTopLoader from "nextjs-toploader";
 
 // Configuring Inter font
 const inter = Inter({
@@ -30,6 +31,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.variable} ${tinos.variable} antialiased`} // Applying the fonts globally
       >
+        {/* Top progress bar on route change */}
+        <NextTopLoader showSpinner={true} />
+
         <Header />   {/* Sticky global header */}
         {children}   {/* Page content (contains <main> from pages) */}
         <Footer />   {/* Global footer */}

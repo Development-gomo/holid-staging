@@ -235,7 +235,7 @@ export default function ServicesSlider({ data }) {
                         fill
                         className="absolute inset-0 w-full h-full object-cover transition-all duration-300 group-hover:blur-sm"
                         sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                        priority={idx < 3}
+                        priority={idx < 3} 
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/0 transition-all duration-300 group-hover:blur-sm" />

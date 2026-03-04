@@ -261,5 +261,24 @@ width: 80px !important;
     margin-top: 5px !important;
 }
 .dash-border{
-border-bottom: 1px dashed #B9C0C7;
+border-bottom: 1px dashed #B9C0C7;}
+.insight-content .toc{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: rgba(219, 226, 233, 0.35);
+  padding: 20px;
+  border-radius: 8px;
+  display: inline-block;
+}
+.insight-content .toc a{
+  color: #171717!important;
+}
+.insight-content .toc h2{
+  font-size: 18px!important;
+  font-weight: 700!important;
+}
+.insight-content .toc ol {
+  margin-left: 20px;
+  list-style: decimal!important;
+  line-height: 1.6;
 }

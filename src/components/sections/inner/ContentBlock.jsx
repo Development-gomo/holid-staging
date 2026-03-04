@@ -56,6 +56,7 @@ export default function ContentBlock({ data }) {
     content,
     image,
     button,
+      
   } = data;
 
   const bgType = background_type || "none";

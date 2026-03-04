@@ -25,7 +25,7 @@ export default function TwoColStructure({ data }) {
   const sectionBgClass = backgroundType === "dark" ? "bg-[#000821] text-white" : "bg-white text-[#1F1C1C]";
 
   return (
-    <section className={`w-full py-12 ${sectionBgClass}`}>
+    <section className={`w-full ${sectionBgClass} pt-[30px] pb-[60px] md:pt-[48px] md:pb-[120px]`}>
       <div className="web-width px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
           {items.map((item, idx) => {
@@ -41,7 +41,7 @@ export default function TwoColStructure({ data }) {
             return (
               <div key={idx} className="flex flex-col" style={style}>
                 {img ? (
-                  <div className="w-full h-100 mb-4 overflow-hidden">
+                  <div className="w-full h-auto lg:h-100 mb-4 overflow-hidden">
                     <Image src={img} alt={title || ""} width={800} height={400} className="object-contain w-full h-full" />
                   </div>
                 ) : null}

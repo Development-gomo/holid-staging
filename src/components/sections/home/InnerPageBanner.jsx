@@ -38,7 +38,7 @@ export default function InnerPageBanner({ data }) {
 
       <div className="web-width px-6 py-10 relative z-10 flex w-full flex-col md:flex-row md:gap-[10%] items-start">
         <div className="w-full md:w-1/2 text-white text-left">
-          {heading && <h1 className="text-4xl font-bold">{heading}</h1>}
+          {heading && <h1 className="banner-heading text-4xl font-bold">{heading}</h1>}
 
           {subheading && (
             <div

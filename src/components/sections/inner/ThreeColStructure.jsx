@@ -25,7 +25,7 @@ export default function ThreeColStructure({ data }) {
   const sectionBgClass = backgroundType === "dark" ? "bg-[#000821] text-white" : "bg-white text-[#1F1C1C]";
 
   return (
-    <section className={`w-full py-12 ${sectionBgClass}`}>
+    <section className={`w-full ${sectionBgClass} pt-[30px] pb-[60px] md:pt-[48px] md:pb-[120px]`}>
       <div className="web-width px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[35px]">
           {items.map((item, idx) => {

@@ -15,19 +15,22 @@ export default function SpecialHeadingWithCta({ data }) {
   const sectionBgClass = backgroundType === "dark" ? "bg-[#000821] text-white" : "bg-white text-[#1F1C1C]";
 
   return (
-    <section className={`w-full py-12 pb-0 ${sectionBgClass}`}>
+    <section className={`w-full ${sectionBgClass} pt-[60px] pb-0 md:pt-[120px] md:pb-0`}>
       <div className="web-width px-6">
         <div className="max-w-3xl mx-auto text-center">
 
           {text_above_heading && (
-            <div className="inline-flex items-center justify-center gap-3 mb-4">
-              <span className="w-3 h-3 bg-blue-600 block rounded-sm" aria-hidden="true" />
-              <p className="sub-heading-above">{text_above_heading}</p>
+            <div className="inline-flex items-center justify-center gap-2 dash-border mb-4">
+              <span className="w-[5px] h-[5px] bg-[#2A3EF4] block" aria-hidden="true" />
+              <p className="sub-heading-above !text-[12px] !leading-[26px] text-[#90979F]">{text_above_heading}</p>
+              
             </div>
+
+            
           )}
 
           {main_heading && (
-            <h2 className="special-heading" dangerouslySetInnerHTML={{ __html: main_heading }} />
+            <h2 className="special-heading !text-[32px] !sm:text-[32px] md:!text-[56px] font-medium" dangerouslySetInnerHTML={{ __html: main_heading }} />
           )}
 
           <div>

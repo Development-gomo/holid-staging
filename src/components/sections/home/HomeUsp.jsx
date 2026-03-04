@@ -9,7 +9,7 @@ export default function HomeUsp({ data }) {
   const usps = data?.usps || [];
 
   return (
-    <section id="main-usp" className="w-full mt-[-1px] pt-0 pb-15 bg-drk">
+  <section id="main-usp" className="w-full mt-[-1px] pt-0 pb-15 md:pb-[120px] bg-drk">
       {/* Content container */}
       <div className="web-width px-6  flex flex-col items-center">
         {/* Main USP Video */}

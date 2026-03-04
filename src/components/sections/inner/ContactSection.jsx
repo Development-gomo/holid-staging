@@ -54,12 +54,12 @@ export default function ContactSection({ data }) {
   }, [hubspot_form_embed]);
 
   return (
-    <section className="w-full py-12">
+   <section className="w-full pt-0 pb-[60px] md:pt-0 md:pb-[120px]">
       <div className="web-width px-6">
         <div className="flex flex-col md:flex-row gap-8 md:gap-12">
           <div className="w-full md:w-1/2">
             {section_heading && (
-              <h2 className="text-2xl md:text-3xl font-semibold mb-6">{section_heading}</h2>
+              <h2 className="!text-[32px] !sm:text-[32px] md:!text-[56px] font-medium mb-4">{section_heading}</h2>
             )}
 
             <div ref={hubRef} />

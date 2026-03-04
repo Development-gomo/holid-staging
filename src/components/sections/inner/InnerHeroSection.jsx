@@ -71,7 +71,7 @@ export default function InnerHeroSection({ data }) {
         <div className={`grid gap-10 ${ratioClass}`}>
           {/* Left column (content) */}
           <div className="text-white text-left">
-            {heading && <h1 className="text-4xl font-bold">{heading}</h1>}
+            {heading && <h1 className="banner-heading text-4xl font-bold">{heading}</h1>}
 
             {subheading && (
               <div

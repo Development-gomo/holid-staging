@@ -93,7 +93,7 @@ export default function InsightsSection({ data }) {
   }, [API_BASE, limit]);
 
   return (
-    <section id="insights" className="w-full bg-white py-16 md:py-20">
+ <section id="insights" className="w-full bg-white pt-[60px] pb-[60px] md:pt-[120px] md:pb-[120px]">
       <div className="web-width px-6">
         {/* Text Above Heading */}
         {text_above_heading && (

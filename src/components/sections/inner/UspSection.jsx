@@ -35,7 +35,7 @@ export default function UspSection({ data }) {
       : "bg-white text-[#1F1C1C]";
 
   return (
-    <section id="inner-usp" className={`w-full py-12 ${sectionBgClass}`}>
+ <section id="inner-usp" className={`w-full ${sectionBgClass} pt-[30px] pb-[60px] md:pt-[48px] md:pb-[120px]`}>
       <div className="web-width px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-[35px]">
           {usps.map((usp, index) => {

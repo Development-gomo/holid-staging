@@ -22,7 +22,7 @@ export default function AccordionSection({ data }) {
   const [openIdx, setOpenIdx] = useState(null);
 
   return (
-    <section className={`w-full py-12 ${sectionBgClass}`}>
+    <section className={`w-full ${sectionBgClass} pt-[30px] pb-[60px] md:pt-[48px] md:pb-[120px]`}>
       <div className="web-width px-6">
         <div className="max-w-5xl mx-auto">
           {items.map((item, idx) => {

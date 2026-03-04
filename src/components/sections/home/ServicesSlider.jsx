@@ -166,17 +166,17 @@ export default function ServicesSlider({ data }) {
   const iconTypeByIndex = (i) => (i % 3 === 1 ? "monitor" : i % 3 === 2 ? "doc" : "arrow");
 
   return (
-    <section
-      id="services-slider"
-      className="w-full bg-[#050A1C] py-16 md:py-20 relative overflow-hidden"
-    >
+   <section
+  id="services-slider"
+  className="w-full bg-[#050A1C] pt-[60px] pb-[60px] md:pt-[120px] md:pb-[120px] relative overflow-hidden"
+>
       <div className="web-width px-6">
         {/* Text Above Heading */}
         <div className="flex justify-center mb-4">
           <div className="inline-flex flex-col items-center">
             <div className="inline-flex items-center justify-center gap-2">
               <span className="w-[5px] h-[5px] bg-[#2A3EF4] block" aria-hidden="true" />
-              <p className="sub-heading-above !text-[12px] !leading-[26px] text-white/60">{text_above_heading}</p>
+              <p className="sub-heading-above !text-[12px] !leading-[26px] text-[#90979F]">{text_above_heading}</p>
             </div>
             <div className="w-full border-b border-dashed border-white/30" />
           </div>
@@ -184,8 +184,8 @@ export default function ServicesSlider({ data }) {
 
         {/* Main Heading */}
         <h2
-          className="mt-6 text-center text-white whitespace-pre-line font-[Merriweather] 
-                     !text-[32px] !sm:text-[32px] md:!text-[56px] font-bold font-bold mx-auto max-w-3xl"
+          className="mt-6 text-center text-white whitespace-pre-line  
+                     !text-[32px] !sm:text-[32px] md:!text-[56px] font-bold mx-auto max-w-3xl"
         >
           {main_heading}
         </h2>

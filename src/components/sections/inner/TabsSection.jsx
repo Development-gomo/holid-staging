@@ -42,10 +42,8 @@ const TabsSection = ({ background_type = 'light', tabs, tab_details }) => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section
-      className="tabs-section"
-      style={bgStyles[background_type] || bgStyles.light}
-    >
+    <section className="tabs-section pt-[30px] pb-[60px] md:pt-[48px] md:pb-[120px]" style={bgStyles[background_type] || bgStyles.light}
+>
       <div className="tabs-container">
         <div className="tabs-header">
           {tabDetails.map((tab, idx) => (
@@ -72,7 +70,7 @@ const TabsSection = ({ background_type = 'light', tabs, tab_details }) => {
       </div>
       <style jsx>{`
         .tabs-section {
-          padding: 40px 0;
+    
           width: 100%;
         }
         .tabs-container {

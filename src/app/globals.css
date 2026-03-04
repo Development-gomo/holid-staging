@@ -14,7 +14,8 @@
   --color-accent: #00FEC3;
   --color-brand: #151B5D;
   --background: #ffffff;
-  --foreground: #171717;
+  /* --foreground: #171717; */
+   --foreground: #1F1C1C;
 }
 
 /* Global body styling */
@@ -250,4 +251,15 @@ a.block-btn{
   text-decoration: underline;
 }
 
+.font-bld{
+font-weight: 500 !important;
+}
 
+.custom-border{
+width: 80px !important;
+    margin: 0 auto !important;
+    margin-top: 5px !important;
+}
+.dash-border{
+border-bottom: 1px dashed #B9C0C7;
+}

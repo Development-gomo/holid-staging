@@ -74,14 +74,14 @@ export default function ContentBlock({ data }) {
   const isImageLeft = layout_style === "image_left";
 
   return (
-    <section className={`w-full py-12 md:py-16 ${bgClass}`} style={sectionStyle}>
+  <section className={`w-full pt-[60px] pb-[60px] md:pt-[120px] md:pb-[120px] ${bgClass}`}style={sectionStyle}>
       <div className="web-width px-6">
 
         {/* If NO IMAGE → Full width content */}
         {isNoImage ? (
           <div className="w-full max-w-4xl mx-auto">
             {heading && (
-              <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+              <h2 className="!text-[32px] !sm:text-[32px] md:!text-[56px] font-medium mb-4">
                 {heading}
               </h2>
             )}
@@ -112,7 +112,7 @@ export default function ContentBlock({ data }) {
         ) : (
           /* Normal image + content layout */
           <div
-            className={`w-full flex flex-col md:flex-row gap-16 md:items-center ${
+            className={`w-full flex flex-col md:flex-row gap-[35px] md:gap-16 md:items-center ${
               !isImageLeft ? "md:flex-row-reverse" : ""
             }`}
           >
@@ -134,7 +134,7 @@ export default function ContentBlock({ data }) {
             {/* Content Column */}
             <div className="w-full md:w-1/2 flex flex-col justify-center">
               {heading && (
-                <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+                <h2 className="!text-[32px] !sm:text-[32px] md:!text-[56px] font-medium mb-4">
                   {heading}
                 </h2>
               )}

@@ -8,7 +8,8 @@ export default function SpeacialHeading({ data }) {
   const text_below_heading = data?.text_below_heading || '';
 
   return (
-    <section className="w-full pt-[60px] pb-[00px] md:py-12">
+<section className="w-full pt-[60px] pb-[60px] md:pt-[120px] md:pb-[80px]">
+      
       <div className="web-width px-6">
         <div className="max-w-3xl mx-auto text-center">
 
@@ -26,7 +27,7 @@ export default function SpeacialHeading({ data }) {
           {/* Main heading */}
           {main_heading && (
             <h2
-              className="special-heading !text-[32px] !sm:text-[32px] md:!text-[56px] font-bold font-bold"
+              className="special-heading !text-[32px] !sm:text-[32px] md:!text-[56px] font-bold"
               dangerouslySetInnerHTML={{ __html: main_heading }}
             />
           )}

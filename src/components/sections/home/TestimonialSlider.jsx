@@ -237,11 +237,12 @@ export default function TestimonialSlider({ data }) {
   };
 
   return (
+ 
     <section
-      id="testimonial-slider"
-      className="w-full py-16 md:py-20 bg-cover bg-center bg-no-repeat"
-      style={bgUrl ? { backgroundImage: `url(${bgUrl})` } : undefined}
-    >
+  id="testimonial-slider"
+  className="w-full pt-[60px] pb-[60px] md:pt-[120px] md:pb-[120px] bg-cover bg-center bg-no-repeat"
+  style={bgUrl ? { backgroundImage: `url(${bgUrl})` } : undefined}
+>
       <div className="web-width px-6 relative z-10">
         {text_above_heading && (
           <div className="flex justify-center mb-4">
@@ -257,7 +258,7 @@ export default function TestimonialSlider({ data }) {
           </div>
         )}
         {main_heading && (
-          <h2 className="mt-6 text-center text-white font-[Merriweather] text-[32px] md:text-[56px] font-bold">
+          <h2 className="mt-6 text-center text-white !text-[32px] !sm:text-[32px] md:!text-[56px] font-medium">
             {main_heading}
           </h2>
         )}

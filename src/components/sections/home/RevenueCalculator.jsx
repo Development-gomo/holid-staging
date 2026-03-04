@@ -136,28 +136,29 @@ export default function RevenueCalculatorSection({
   const filledLen = useMemo(() => fullLen * pct, [fullLen, pct]);
 
   return (
-    <section id="calculator" className="w-full bg-white py-16 md:py-20">
+    <section id="calculator" className="w-full bg-white pt-[60px] pb-[60px] md:pt-[120px] md:pb-[120px]">
       <div className="web-width px-6">
         {/* Eyebrow */}
         <div className="flex items-center justify-center gap-2 text-black/50 text-xs">
-          <span className="inline-block w-1.5 h-1.5 rounded-sm bg-[#2D5BFF]" />
+          <span className="inline-block w-[5px] h-[5px] bg-[#2A3EF4] block" />
           <span>Calculator</span>
         </div>
+         <div className="w-full border-b border-dashed border-black/20 dark:border-white/30 custom-border" />
 
         {/* Title */}
-        <h2 className="mt-6 text-center text-black font-[Merriweather] font-medium text-4xl md:text-6xl leading-[1.05]">
+        <h2 className="mt-6 text-center text-black font-medium !text-[32px] !sm:text-[32px] md:!text-[56px] leading-[1.05]">
           {title}
         </h2>
 
         {/* Subtitle */}
-        <p className="mt-5 text-center text-black/55 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+        <p className="mt-4 text-center text-black/55 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
           {subtitle}
         </p>
 
         {/* Grid */}
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
           {/* LEFT PANEL */}
-          <div className="rounded-[14px] bg-[#DBE2E959] border border-black/5 shadow-[0_10px_30px_rgba(17,24,39,.08)] p-6 md:p-7">
+          <div className="bg-[#DBE2E959] border border-black/5 shadow-[0_10px_30px_rgba(17,24,39,.08)] p-6 md:p-7">
             <div className="space-y-7">
               <RangeField
                 label="Visitors per month"
@@ -213,7 +214,7 @@ export default function RevenueCalculatorSection({
                         type="button"
                         onClick={() => setTier(v)}
                         className={[
-                          "py-3  text-xs font-bold transition",
+                          "py-3  text-xs font-bold transition cursor-pointer",
                           active
                             ? "bg-[#DDE2FF] text-slate-900"
                             : "bg-white text-slate-500 hover:text-slate-700",
@@ -231,7 +232,7 @@ export default function RevenueCalculatorSection({
           {/* RIGHT SIDE (two cards stacked) */}
           <div className="space-y-6">
             {/* Top card: Gauge + Yearly */}
-            <div className="rounded-[14px] overflow-hidden border border-white/10 shadow-[0_10px_30px_rgba(17,24,39,.18)] bg-[#000821]">
+            <div className="overflow-hidden border border-white/10 shadow-[0_10px_30px_rgba(17,24,39,.18)] bg-[#000821]">
               <div className="px-6 pb-4 bg-[#000821]">
                 {/* Gauge */}
                 <svg
@@ -307,7 +308,7 @@ export default function RevenueCalculatorSection({
             </div>
 
             {/* Bottom card: Monthly + CTA */}
-            <div className="rounded-[14px] overflow-hidden border border-white/10 shadow-[0_10px_30px_rgba(17,24,39,.18)] bg-[#000821]">
+            <div className="overflow-hidden border border-white/10 shadow-[0_10px_30px_rgba(17,24,39,.18)] bg-[#000821]">
               <div className="px-6 pt-8 pb-6 text-center border-b border-white/10 bg-[#000821]">
                 <div className="text-[#EAF0FF] font-extrabold tracking-tight text-3xl md:text-4xl">
                   {fmtMoney(monthly)}

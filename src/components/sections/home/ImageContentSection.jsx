@@ -20,7 +20,7 @@ export default function ImageContentSection({ data, index }) {
   const isImageOnRight = image_position === 'right';
 
   return (
-    <section className="w-full py-[20px] pt-10 md:py-12">
+    <section className="w-full pt-0 pb-[60px] md:pt-0 md:pb-[120px]">
       <div className="web-width px-6 relative">
         <div
           className="hidden md:block absolute top-0 bottom-0 left-1/2 -translate-x-1/2"
@@ -114,7 +114,7 @@ export default function ImageContentSection({ data, index }) {
               </div>
             )}
             {content_section_title && (
-              <p className="mt-0 !leading-[28px] !text-[24px] text-[#1F1C1C] font-semibold mb-4">{content_section_title}</p>
+              <p className="mt-0 !leading-[28px] !text-[24px] text-[#1F1C1C] font-bld mb-4">{content_section_title}</p>
             )}
 
             {short_description && (

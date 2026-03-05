@@ -12,6 +12,10 @@ const TwoColStructure = dynamic(() => import("./sections/inner/TwoColStructure")
 const UspSection = dynamic(() => import("./sections/inner/UspSection"));
 const AccordionSection = dynamic(() => import("./sections/inner/AccordionSection"));
 const TabsSection = dynamic(() => import("./sections/inner/TabsSection"));
+const InsightsSection = dynamic(() => import("./sections/home/InsightsSection"));
+const RevenueCalculator = dynamic(() => import("./sections/home/RevenueCalculator"));
+
+
 
 export default function InnerPageBuilder({ sections }) {
     if (!sections || !sections.length) return null;
@@ -49,6 +53,13 @@ export default function InnerPageBuilder({ sections }) {
 
           case "tabs":
             return <TabsSection key={index} {...block} />;
+
+          case "insights_section":
+            return <InsightsSection key={index} data={block} />;
+
+       case "calculator_section":
+            return <RevenueCalculator key={index} data={block} />;
+
           // Add later when ready
           // case "feature_grid_section":
           //   return <FeatureGridSection key={index} data={block} />;

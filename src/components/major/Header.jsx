@@ -115,7 +115,7 @@ export default function Header() {
                     </Link>
                     {hasChildren && (
                       <ul className="absolute left-0 top-full pt-2 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 z-[100]">
-                        <div className="bg-[#000821] border border-white/10 rounded-lg shadow-xl py-2">
+                        <div className="bg-[#000821] border border-white/10 shadow-xl py-2">
                           {item.children.map((child) => (
                             <li key={child.id}>
                               <Link
@@ -146,7 +146,7 @@ export default function Header() {
                 href={item.url}
                 className={
                   index === rightMenuItems.length - 1
-                    ? "h-full px-7 flex items-center bg-[#2d59ff] hover:bg-[#3a66ff] text-white text-base font-normal leading-normal font-sans transition-colors"
+                    ? "h-full px-7 flex items-center bg-[#2A3EF4] hover:bg-[#2A3EF4] text-white text-base font-normal leading-normal font-sans transition-colors"
                     : "h-full px-7 flex items-center text-white text-base font-normal leading-normal font-sans hover:text-white/90 transition-colors"
                 }
               >

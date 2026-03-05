@@ -55,7 +55,7 @@ export default function InsightsCardAlt({ post }) {
           <span
             style={{
               fontSize: "12px",
-              color: "#2D5BFF",
+              color: "#2A3EF4",
               fontWeight: 400,
               lineHeight: "12px",
               fontFamily:
@@ -70,7 +70,7 @@ export default function InsightsCardAlt({ post }) {
       {/* Title */}
       {title ? (
         <h3
-          className="mt-5 line-clamp-2"
+          className="mt-4 line-clamp-2"
           style={{
             color: "#1F1C1C",
             fontFamily:
@@ -112,7 +112,7 @@ export default function InsightsCardAlt({ post }) {
       {/* Date */}
       {date ? (
         <p
-          className="mt-5"
+          className="mt-2"
           style={{
             color: "#90979F",
             fontFamily:
@@ -131,7 +131,7 @@ export default function InsightsCardAlt({ post }) {
       <div className="mt-8">
         <Link
           href={href || "#"}
-          className="inline-flex items-center btn-blue gap-2 bg-[#2D5BFF] text-white text-xs md:text-sm px-5 py-3"
+          className="inline-flex items-center btn-blue gap-2 fs-16 bg-[#2D5BFF] text-white text-xs md:text-sm px-5 py-3"
           aria-label={`Read article: ${title || "article"}`}
         >
           Read article

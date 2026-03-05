@@ -115,14 +115,14 @@ export default function InsightsSection({ data }) {
 
         {/* Main Heading */}
         {main_heading && (
-          <h2 className="mt-6 text-center text-black font-[Merriweather] !text-[32px] !sm:text-[32px] md:!text-[56px] font-bold mx-auto">
+          <h2 className="mt-4 text-center text-black !text-[32px] !sm:text-[32px] md:!text-[56px] font-bold mx-auto">
             {main_heading}
           </h2>
         )}
 
         {/* Text Below Heading */}
         {text_below_heading && (
-          <p className="mt-6 text-center text-black/60 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
+          <p className="mt-4 text-center max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
             {text_below_heading}
           </p>
         )}

@@ -139,26 +139,26 @@ export default function RevenueCalculatorSection({
     <section id="calculator" className="w-full bg-white pt-[60px] pb-[60px] md:pt-[120px] md:pb-[120px]">
       <div className="web-width px-6">
         {/* Eyebrow */}
-        <div className="flex items-center justify-center gap-2 text-black/50 text-xs">
+        <div className="flex items-center justify-center gap-2 text-xs">
           <span className="inline-block w-[5px] h-[5px] bg-[#2A3EF4] block" />
-          <span>Calculator</span>
+          <span className="text-[#90979F]">Calculator</span>
         </div>
          <div className="w-full border-b border-dashed border-black/20 dark:border-white/30 custom-border" />
 
         {/* Title */}
-        <h2 className="mt-6 text-center text-black font-medium !text-[32px] !sm:text-[32px] md:!text-[56px] leading-[1.05]">
+        <h2 className="mt-4 text-center font-medium !text-[32px] !sm:text-[32px] md:!text-[56px] leading-[1.05]">
           {title}
         </h2>
 
         {/* Subtitle */}
-        <p className="mt-4 text-center text-black/55 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+        <p className="mt-4 text-center max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
           {subtitle}
         </p>
 
         {/* Grid */}
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
           {/* LEFT PANEL */}
-          <div className="bg-[#DBE2E959] border border-black/5 shadow-[0_10px_30px_rgba(17,24,39,.08)] p-6 md:p-7">
+          <div className="bg-[#DBE2E959] p-6 md:p-7">
             <div className="space-y-7">
               <RangeField
                 label="Visitors per month"
@@ -205,7 +205,7 @@ export default function RevenueCalculatorSection({
                   Traffic value
                 </p>
 
-                <div className="grid grid-cols-3 rounded-xl overflow-hidden border border-black/10 bg-white">
+                <div className="grid grid-cols-3 overflow-hidden border border-black/10 bg-white">
                   {["low", "medium", "high"].map((v) => {
                     const active = tier === v;
                     return (
@@ -232,7 +232,7 @@ export default function RevenueCalculatorSection({
           {/* RIGHT SIDE (two cards stacked) */}
           <div className="space-y-6">
             {/* Top card: Gauge + Yearly */}
-            <div className="overflow-hidden border border-white/10 shadow-[0_10px_30px_rgba(17,24,39,.18)] bg-[#000821]">
+            <div className="overflow-hidden bg-[#000821]">
               <div className="px-6 pb-4 bg-[#000821]">
                 {/* Gauge */}
                 <svg
@@ -308,7 +308,7 @@ export default function RevenueCalculatorSection({
             </div>
 
             {/* Bottom card: Monthly + CTA */}
-            <div className="overflow-hidden border border-white/10 shadow-[0_10px_30px_rgba(17,24,39,.18)] bg-[#000821]">
+            <div className="overflow-hidden bg-[#000821]">
               <div className="px-6 pt-8 pb-6 text-center border-b border-white/10 bg-[#000821]">
                 <div className="text-[#EAF0FF] font-extrabold tracking-tight text-3xl md:text-4xl">
                   {fmtMoney(monthly)}
@@ -321,7 +321,7 @@ export default function RevenueCalculatorSection({
               <div className="p-6 bg-[#000821]">
                 <a
                   href="https://app.holid.io/register"
-                  className="w-full inline-flex rounded-xl bg-[#2F43FF] hover:opacity-95 transition text-white font-extrabold text-sm py-4 items-center justify-center gap-2"
+                  className="w-full inline-flex fs-16 bg-[#2F43FF] hover:opacity-95 transition text-white font-extrabold text-sm py-4 items-center justify-center gap-2"
                 >
                   <span className="inline-block w-1.5 h-1.5 bg-white" />
                   {ctaLabel}

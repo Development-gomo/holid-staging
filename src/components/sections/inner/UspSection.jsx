@@ -46,8 +46,8 @@ export default function UspSection({ data }) {
             // For dark: border only, no shadow. For light: shadow only, no border.
             const style =
               backgroundType === "dark"
-                ? { border: "1px solid #ffffff59", boxShadow: "none", padding: 20 }
-                : { boxShadow: "0 4px 24px 0 rgba(0,0,0,0.10)", border: "none", padding: 20 };
+                ? { border: "1px solid #ffffff59", boxShadow: "none", padding: 32 }
+                : { boxShadow: "0 4px 24px 0 rgba(0,0,0,0.10)", border: "none", padding: 32 };
 
             return (
               <div

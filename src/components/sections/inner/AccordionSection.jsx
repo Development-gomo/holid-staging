@@ -34,13 +34,13 @@ export default function AccordionSection({ data }) {
             return (
               <div key={idx} className="border-b border-dashed border-[#B9C0C7]">
                 <button
-                  className="cursor-pointer w-full flex items-center justify-between py-5 text-left focus:outline-none"
+                  className="cursor-pointer w-full flex items-center justify-between py-6 text-left focus:outline-none"
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
                   aria-expanded={isOpen}
                 >
-                  <span className="text-lg font-medium">{question}</span>
+                  <span className="fs24 font-medium">{question}</span>
                   <span
-                    className={`transition-transform duration-300 ml-4 ${isOpen ? "rotate-45" : "rotate-0"}`}
+                    className={`transition-transform duration-300 ml-4 ${isOpen ? "rotate-90" : "rotate-0"}`}
                     style={{ display: "inline-block" }}
                   >
                     {getIconSvg(backgroundType === "dark" ? "white" : "#1F1C1C")}

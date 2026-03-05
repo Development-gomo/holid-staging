@@ -33,6 +33,8 @@ export default async function Footer() {
           margin-bottom: 24px;
           color: #FFFFFF;
         }
+          .footer-social-title{
+          margin-bottom: 28px;}
         .widget {
           font-size: 14px !important;
           line-height: 28px !important;
@@ -46,14 +48,14 @@ export default async function Footer() {
         }
         /* CTA wysiwyg color consistency */
         .footer-cta-desc, .footer-cta-desc p {
-          color: #FFFFFF99 !important;
+          color: #FFFFFF !important;
         }
       `}</style>
 
       <div className="web-width px-6 pt-[60px] pb-0 md:pt-[120px] md:pb-0">
         {/* ================= FOOTER CTA (NEW) ================= */}
         {(footer_heading || footer_description || button?.url) && (
-          <div className="text-center mx-auto mb-14">
+          <div className="text-center mx-auto mb-[30px] lg:mb-[80px] border-fcustom pb-[30px] lg:pb-[80px]">
             {footer_heading ? (
               <h2 className="!text-[32px] !sm:text-[32px] md:!text-[56px] font-medium">
                 {footer_heading}
@@ -68,7 +70,7 @@ export default async function Footer() {
             ) : null}
 
             {button?.url ? (
-              <div className="mt-6 flex justify-center">
+              <div className="mt-8 flex justify-center">
                 <Link
                   href={button.url}
                   target={button.target || "_self"}

@@ -35,11 +35,11 @@ export default function SpecialHeadingWithCta({ data }) {
 
           <div>
             {text_below_heading && (
-              <p className="mt-6 sub-heading-above">{text_below_heading}</p>
+              <p className="mt-4 sub-heading-above">{text_below_heading}</p>
             )}
 
             {cta && cta.url && (
-              <div className="mt-6">
+              <div className="mt-8">
                 <Link
                   href={cta.url}
                   target={cta.target || "_self"}

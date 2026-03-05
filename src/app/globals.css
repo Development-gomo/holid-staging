@@ -51,8 +51,12 @@ p{
   line-height: 1.5;
   font-weight: 400; 
 }
-
-
+.fs-16{
+  font-size: 16px;
+}
+.ff-inter{
+  font-family: var(--font-primary);
+}
 /* Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -281,4 +285,7 @@ border-bottom: 1px dashed #B9C0C7;}
   margin-left: 20px;
   list-style: decimal!important;
   line-height: 1.6;
+}
+.border-fcustom{
+border-bottom: 1px solid rgba(185, 192, 199, 0.50);
 }

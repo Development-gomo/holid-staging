@@ -27,7 +27,7 @@ export default function TwoColStructure({ data }) {
   return (
     <section className={`w-full ${sectionBgClass} pt-[30px] pb-[60px] md:pt-[48px] md:pb-[120px]`}>
       <div className="web-width px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[48px]">
           {items.map((item, idx) => {
             const rawImg = item?.image || null;
             const img = getImageUrl(rawImg);
@@ -36,8 +36,8 @@ export default function TwoColStructure({ data }) {
 
             // For dark: border only, no shadow. For light: shadow only, no border.
             const style = backgroundType === "dark"
-              ? { border: '1px solid #ffffff59', boxShadow: 'none', padding: 24 }
-              : { boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)', border: 'none', padding: 24 };
+              ? { border: '1px solid #ffffff59', boxShadow: 'none', padding: 48 }
+              : { boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)', border: 'none', padding: 48 };
             return (
               <div key={idx} className="flex flex-col" style={style}>
                 {img ? (
@@ -46,10 +46,10 @@ export default function TwoColStructure({ data }) {
                   </div>
                 ) : null}
 
-                {title && <h3 className="fs24 fw500 text-lg font-medium mb-2 text-left">{title}</h3>}
+                {title && <h3 className="fs24 fw500 text-lg font-medium mb-2 text-left ff-inter">{title}</h3>}
 
                 {desc && (
-                  <div className="prose max-w-none text-left" dangerouslySetInnerHTML={{ __html: desc }} />
+                  <div className="prose mt-4 max-w-none text-left" dangerouslySetInnerHTML={{ __html: desc }} />
                 )}
 
                 {/* Example CTA usage: expects item.btn or item.cta */}

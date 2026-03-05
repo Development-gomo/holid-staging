@@ -106,7 +106,7 @@ export default function Header() {
                     >
                       {item.title}
                       {hasChildren && (
-                        <span className="text-lg leading-none transition-transform duration-300 group-hover:rotate-45">
+                        <span className="text-lg leading-none transition-transform duration-300 group-hover:rotate-90">
                           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
                       <path fillRule="evenodd" clipRule="evenodd" d="M7.02595 1.21868e-06V5.97445H13V7.02627L7.02595 7.02556V13H5.97407L5.97478 7.02556H0V5.97445H5.97405L5.97476 0L7.02595 1.21868e-06Z" fill="white"/>
                     </svg>

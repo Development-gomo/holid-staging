@@ -29,10 +29,9 @@ export default function InnerHeroSection({ data }) {
     subheading,
     hero_image,
     button,
-    column_ratio, // ✅ NEW ACF field
+    column_ratio,
   } = data;
 
-  // ACF image return format can be object or string
   const heroImgUrl =
     hero_image?.url ||
     hero_image?.source_url ||
@@ -41,6 +40,7 @@ export default function InnerHeroSection({ data }) {
   const heroImgAlt = hero_image?.alt || heading || "Service hero";
 
   const hasBgImage = Boolean(heroImgUrl);
+
   const bgStyle = !hasBgImage
     ? { backgroundColor: background_color || "#0b1220" }
     : undefined;
@@ -53,7 +53,7 @@ export default function InnerHeroSection({ data }) {
       style={bgStyle}
     >
       {/* Background image */}
-      {hasBgImage ? (
+      {hasBgImage && (
         <div className="absolute inset-0">
           <Image
             src={heroImgUrl}
@@ -63,19 +63,26 @@ export default function InnerHeroSection({ data }) {
             className="object-cover"
             sizes="100vw"
           />
+
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
-      ) : null}
+      )}
 
       {/* Content container */}
-      <div className="web-width px-6 py-10 relative z-10 w-full">
+      <div className="web-width px-6 pt-[40px] pb-[40px] lg:pt-[80px] lg:pb-[80px] relative z-10 w-full">
         <div className={`grid gap-10 ${ratioClass}`}>
-          {/* Left column (content) */}
+          {/* Left column */}
           <div className="text-white text-left">
-            {heading && <h1 className="banner-heading text-4xl font-bold">{heading}</h1>}
+            {heading && (
+              <h1 className="banner-heading text-4xl font-bold">
+                {heading}
+              </h1>
+            )}
 
             {subheading && (
               <div
-                className="mt-3 max-w-full text-lg mb-6"
+                className="mt-6 max-w-full text-lg mb-8"
                 dangerouslySetInnerHTML={{ __html: subheading }}
               />
             )}
@@ -95,7 +102,7 @@ export default function InnerHeroSection({ data }) {
             )}
           </div>
 
-          {/* Right column (empty spacer to respect ratio) */}
+          {/* Spacer column */}
           <div aria-hidden="true" />
         </div>
       </div>

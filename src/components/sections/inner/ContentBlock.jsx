@@ -19,11 +19,11 @@ import Link from "next/link";
 function getBgClass(backgroundType) {
   switch (backgroundType) {
     case "light":
-      return "bg-white text-black"; // Light background and black text
+      return "bg-white text-[90979f]"; // Light background and black text
     case "dark":
       return "bg-[#000821] text-white"; // Dark background with #000821 and white text
     case "brand":
-      return "bg-[#00F5C4] text-black"; // Brand color background with black text
+      return "bg-[#00F5C4] text-[90979f]"; // Brand color background with black text
     case "custom":
     case "none":
     default:
@@ -89,7 +89,7 @@ export default function ContentBlock({ data }) {
 
             {content && (
               <div
-                className={`prose max-w-none mb-6 ${
+                className={`prose max-w-none mb-8 ${
                   bgType === "dark" ? "prose-invert" : ""
                 }`}
                 dangerouslySetInnerHTML={{ __html: content }}

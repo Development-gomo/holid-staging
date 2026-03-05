@@ -78,7 +78,7 @@ export default function FooterWidget({ html = "" }) {
         <div className="widget-title py-2 md:py-0">
           <span className="text-lg font-medium text-white">{title || "Details"}</span>
         </div>
-        <div className="mt-2">
+        <div className="widget-detail">
           <div className="widget" dangerouslySetInnerHTML={{ __html: body }} />
         </div>
       </div>

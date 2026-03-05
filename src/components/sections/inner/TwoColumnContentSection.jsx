@@ -16,7 +16,7 @@ function getBgClass(backgroundType) {
     case "light":
       return "bg-gray-50 text-black";
     case "dark":
-      return "bg-black text-white";
+      return "bg-[#000821] text-white";
     case "brand":
       return "bg-[#00F5C4] text-black";
     case "custom":

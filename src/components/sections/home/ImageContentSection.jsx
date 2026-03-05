@@ -31,7 +31,7 @@ export default function ImageContentSection({ data, index }) {
             backgroundRepeat: 'repeat-y',
           }}
         />
-        <div className="w-full grid grid-cols-1 gap-8 md:gap-0 md:items-start md:grid-cols-[minmax(0,1fr)_64px_32px_64px_minmax(0,1fr)]">
+        <div className="w-full md:w-[85%] mx-auto grid grid-cols-1 gap-8 md:gap-0 md:items-start md:grid-cols-[minmax(0,1fr)_64px_32px_64px_minmax(0,1fr)]">
 
           {/* Image Column */}
           <div className={`w-full order-1 md:order-none ${isImageOnRight ? 'md:col-start-5 md:row-start-1' : 'md:col-start-1 md:row-start-1'}`}>

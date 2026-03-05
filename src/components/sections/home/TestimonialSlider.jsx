@@ -249,7 +249,7 @@ export default function TestimonialSlider({ data }) {
             <div className="inline-flex flex-col items-center">
               <div className="inline-flex items-center justify-center gap-2">
                 <span className="w-[5px] h-[5px] bg-[#2A3EF4] block" />
-                <p className="sub-heading-above !text-[12px] !leading-[26px] text-white/60">
+                <p className="sub-heading-above !text-[12px] !leading-[26px] text-[#90979F]">
                   {text_above_heading}
                 </p>
               </div>
@@ -258,12 +258,12 @@ export default function TestimonialSlider({ data }) {
           </div>
         )}
         {main_heading && (
-          <h2 className="mt-6 text-center text-white !text-[32px] !sm:text-[32px] md:!text-[56px] font-medium">
+          <h2 className="mt-4 text-center text-white !text-[32px] !sm:text-[32px] md:!text-[56px] font-medium">
             {main_heading}
           </h2>
         )}
         {text_below_heading && (
-          <p className="mt-6 text-center text-white/65 max-w-3xl mx-auto text-sm md:text-base">
+          <p className="text-white mt-4 text-center max-w-3xl mx-auto text-sm md:text-base">
             {text_below_heading}
           </p>
         )}
@@ -306,7 +306,7 @@ export default function TestimonialSlider({ data }) {
           </div>
         )}
         {/* Slider */}{" "}
-        <div className="mt-8 md:mt-10">
+        <div className="mt-8 md:mt-12">
           {" "}
           <Swiper
             modules={[Navigation, A11y]}
@@ -366,7 +366,7 @@ export default function TestimonialSlider({ data }) {
                         ) : null}{" "}
                         {quote ? (
                           <p
-                            className="mt-6 text-[#0B0F1A]/80 max-w-[72ch]"
+                            className="mt-6 text-[#1F1C1C] max-w-[72ch]"
                             style={{
                               fontFamily: "Tinos, serif",
                               fontSize: "24px",

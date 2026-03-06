@@ -39,8 +39,8 @@ function RangeField({
   const p = ((value - min) / (max - min)) * 100;
 
   return (
-    <div className="space-y-3">
-      <p className="text-[12px] font-semibold text-slate-500">{label}</p>
+    <div className="mb-10">
+      <p className="text-[16px] text-[#90979F] !leading-6 font-semibold font-normal">{label}</p>
 
       <div className="relative">
         <input
@@ -59,20 +59,20 @@ function RangeField({
 
         {/* Blue dot marker under the tick */}
         <div
-          className="absolute w-2 h-2 rounded-full bg-[#2A3EF4]"
-          style={{ left: `${p}%`, transform: "translateX(-40%)", top: "38px", }}
+          className="absolute w-2 h-2 rounded-full border-[2px] bg-white border-[#2A3EF4]"
+          style={{ left: `${p}%`, transform: "translateX(-40%)", top: "48px", }}
           aria-hidden="true"
         />
 
         {/* value under thumb */}
         <div
-          className="absolute text-[12px] font-semibold text-slate-900"
-          style={{ left: `${p}%`, transform: "translateX(-40%)", top: "52px" }}
+          className="absolute text-[14px] leading-6 font-semibold text-[#1F1C1C]"
+          style={{ left: `${p}%`, transform: "translateX(-40%)", top: "55px" }}
         >
           {valueLabel}
         </div>
 
-        <div className="mt-[14px] flex items-center justify-between text-[11px] text-slate-400">
+        <div className="mt-[1px] text-[#90979F] flex items-center justify-between !leading-6 text-[14px] font-normal">
           <span>{minLabel}</span>
           <span>{maxLabel}</span>
         </div>
@@ -158,7 +158,7 @@ export default function RevenueCalculatorSection({
         {/* Grid */}
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
           {/* LEFT PANEL */}
-          <div className="bg-[#DBE2E959] p-6 md:p-7">
+          <div className="bg-[#DBE2E959] p-6 md:p-12">
             <div className="space-y-7">
               <RangeField
                 label="Visitors per month"
@@ -205,7 +205,7 @@ export default function RevenueCalculatorSection({
                   Traffic value
                 </p>
 
-                <div className="grid grid-cols-3 overflow-hidden border border-black/10 bg-white">
+                <div className="grid grid-cols-3 overflow-hidden  bg-white w-[369px]">
                   {["low", "medium", "high"].map((v) => {
                     const active = tier === v;
                     return (
@@ -214,10 +214,10 @@ export default function RevenueCalculatorSection({
                         type="button"
                         onClick={() => setTier(v)}
                         className={[
-                          "py-3  text-xs font-bold transition cursor-pointer",
+                          "py-3  text-[16px] font-normal transition cursor-pointer",
                           active
-                            ? "bg-[#DDE2FF] text-slate-900"
-                            : "bg-white text-slate-500 hover:text-slate-700",
+                            ? "bg-[#2A3EF440] !font-bold"
+                            : "bg-white",
                         ].join(" ")}
                       >
                         {v.charAt(0).toUpperCase() + v.slice(1)}
@@ -233,11 +233,11 @@ export default function RevenueCalculatorSection({
           <div className="space-y-6">
             {/* Top card: Gauge + Yearly */}
             <div className="overflow-hidden bg-[#000821]">
-              <div className="px-6 pb-4 bg-[#000821]">
+              <div className=" pb-13 bg-[#000821]">
                 {/* Gauge */}
                 <svg
-                className="w-full h-[240px] block"
-                viewBox="0 0 520 230"
+                className="w-full mb-4 h-[235px] block"
+                viewBox="0 32 520 230"
                 aria-label="Revenue gauge"
                 role="img"
                 >
@@ -298,30 +298,30 @@ export default function RevenueCalculatorSection({
                 />
                 </svg>
 
-                <div className="text-center pt-2 pb-4">
-                    <div className="text-[#EAF0FF] font-medium tracking-tight text-4xl md:text-4xl">
+                <div className="text-center">
+                    <div className="text-[#FFFFFF] ff-inter font-normal leading-16 tracking-[3px] text-[40px] md:text-[56px]">
                         {fmtMoney(yearly)}
                     </div>
-                    <div className="mt-1 text-[12px] text-white/70">Revenue / year</div>
+                    <div className="mt-1 text-[16px] font-normal text-white">Revenue / year</div>
                 </div>
               </div>
             </div>
 
             {/* Bottom card: Monthly + CTA */}
-            <div className="overflow-hidden bg-[#000821]">
-              <div className="px-6 pt-8 pb-6 text-center border-b border-white/10 bg-[#000821]">
-                <div className="text-[#EAF0FF] font-extrabold tracking-tight text-3xl md:text-4xl">
+            <div className="overflow-hidden p-6 bg-[#000821]">
+              <div className="pb-5 text-center bg-[#000821]">
+                <div className="text-[#FFFFFF] ff-inter font-normal leading-12 tracking-[3px] text-[30px] md:text-[40px]">
                   {fmtMoney(monthly)}
                 </div>
-                <div className="mt-1 text-[12px] text-white/70">
+                <div className="mt-1 text-[16px] font-normal text-white">
                   Revenue / month
                 </div>
               </div>
 
-              <div className="p-6 bg-[#000821]">
+              <div className="bg-[#000821]">
                 <a
                   href="https://app.holid.io/register"
-                  className="w-full inline-flex fs-16 bg-[#2F43FF] hover:opacity-95 transition text-white font-extrabold text-sm py-4 items-center justify-center gap-2"
+                  className="w-full inline-flex text-[16px] bg-[#2F43FF] hover:opacity-95 transition text-white font-normal text-sm py-4 items-center justify-center gap-2"
                 >
                   <span className="inline-block w-1.5 h-1.5 bg-white" />
                   {ctaLabel}
@@ -344,10 +344,8 @@ export default function RevenueCalculatorSection({
 
         /* Chrome / Edge / Safari track */
         :global(.calc-seg-range::-webkit-slider-runnable-track) {
-            height: 34px;
-            border-radius: 3px;
-            border: 1px solid rgba(0, 0, 0, 0.25);
-
+            height: 48px;
+           
             /* Layers:
             1) blue tick at current value
             2) vertical segment dividers
@@ -359,8 +357,8 @@ export default function RevenueCalculatorSection({
                 to right,
                 transparent 0%,
                 transparent calc(var(--p) - 1px),
-                #2a3ef4 calc(var(--p) - 1px),
-                #2a3ef4 calc(var(--p) + 1px),
+                #2A3EF4 calc(var(--p) - 1px),
+                #2A3EF4 calc(var(--p) + 1px),
                 transparent calc(var(--p) + 1px),
                 transparent 100%
             ),
@@ -368,15 +366,15 @@ export default function RevenueCalculatorSection({
             repeating-linear-gradient(
                 to right,
                 transparent 0,
-                transparent calc((100% / var(--segments)) - 2px),
-                #e9edf6 calc((100% / var(--segments)) - 2px),
-                #e9edf6 calc(100% / var(--segments))
+                transparent calc((100% / var(--segments)) - 1px),
+                #DBE2E9 calc((100% / var(--segments)) - 1px),
+                #DBE2E9 calc(100% / var(--segments))
             ),
             /* base fill */
             linear-gradient(
                 to right,
-                #c8d2ff 0%,
-                #c8d2ff var(--p),
+                #2A3EF440 0%,
+                #2A3EF440 var(--p),
                 #ffffff var(--p),
                 #ffffff 100%
             );

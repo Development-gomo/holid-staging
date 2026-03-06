@@ -129,13 +129,14 @@ position: relative;
 
 /* Custom Button Styles */
 .btn-blue {
-  background: #2A3EF4;
-  color: #FFFFFF;
-  position: relative;
-  transition: all 0.3s ease;
-  padding: 13px 24px 13px 40px;
-  width: auto !important;
+ color: #fff;
+    background: #2a3ef4;
+    padding: 14px 24px 14px 40px;
+    transition: all .3s;
+    position: relative;
+    width: auto !important;
     max-width: max-content !important;
+    line-height: 1.25;
 }
 
 /* Before Pseudo Element */

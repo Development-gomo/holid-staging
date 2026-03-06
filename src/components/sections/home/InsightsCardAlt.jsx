@@ -92,7 +92,7 @@ export default function InsightsCardAlt({ post }) {
       {/* Excerpt (optional) */}
       {excerpt ? (
         <p
-          className="mt-3 line-clamp-2"
+          className="mt-1 line-clamp-2"
           style={{
             fontSize: 14,
             lineHeight: "22px",
@@ -112,7 +112,7 @@ export default function InsightsCardAlt({ post }) {
       {/* Date */}
       {date ? (
         <p
-          className="mt-2"
+          className="mt-4"
           style={{
             color: "#90979F",
             fontFamily:

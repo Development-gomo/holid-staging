@@ -282,7 +282,7 @@ export default function ServicesSlider({ data }) {
                     </div>
 
                     {/* Bottom content */}
-                    <div className="absolute inset-x-0 bottom-0 p-8 md:bottom-[-50px] group-hover:bottom-0 transition-all duration-300">
+                    <div className="absolute inset-x-0 bottom-0 p-8 md:bottom-[-65px] group-hover:bottom-0 transition-all duration-300">
                       <p className="text-white mb-4 text-xs md:text-sm leading-relaxed max-w-[34ch] transform transition-transform duration-300 translate-y-0 group-hover:-translate-y-3">
                         {excerpt}
                       </p>

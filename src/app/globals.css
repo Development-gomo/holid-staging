@@ -287,5 +287,5 @@ border-bottom: 1px dashed #B9C0C7;}
   line-height: 1.6;
 }
 .border-fcustom{
-border-bottom: 1px solid rgba(185, 192, 199, 0.50);
+border-bottom: 0.5px dashed #b9c0c780;
 }

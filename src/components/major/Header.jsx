@@ -64,7 +64,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[linear-gradient(90deg,#0a1a63_0%,#06154f_55%,#031141_100%)] shadow-lg backdrop-blur-md"
+          ? "bg-[#000821] shadow-lg backdrop-blur-md"
           : "bg-transparent"
       }`}
       style={{ borderBottom: "1px solid rgba(255,255,255,0.30)" }}
@@ -102,7 +102,7 @@ export default function Header() {
                   <li key={item.id} className="relative group">
                     <Link
                       href={item.url}
-                      className="flex items-center gap-2 py-2 text-white text-base font-normal leading-normal font-sans hover:text-white/90 transition-colors"
+                      className="flex items-center gap-2 py-2 text-white text-base font-normal leading-normal font-sans hover:text-white transition-colors pt-[18px]"
                     >
                       {item.title}
                       {hasChildren && (
@@ -120,7 +120,7 @@ export default function Header() {
                             <li key={child.id}>
                               <Link
                                 href={child.url}
-                                className="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                                className="block px-4 py-2.5 pl-5 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
                               >
                                 {child.title}
                               </Link>

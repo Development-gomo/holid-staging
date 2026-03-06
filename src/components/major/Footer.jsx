@@ -144,7 +144,7 @@ export default async function Footer() {
         </div>
 
         {/* ================= COPYRIGHT ================= */}
-        <div className="border-white/20 border-none lg:border-dashed border-t-[0.5px] md:py-4 lg:py-4 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 lg:gap-6">
+        <div className="border-[#b9c0c780] border-none lg:border-dashed border-t-[0.5px] md:py-4 lg:py-4 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 lg:gap-6">
           <div
             className="footer-copyright"
             dangerouslySetInnerHTML={{

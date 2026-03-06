@@ -15,20 +15,20 @@ export default function HomeUsp({ data }) {
         {/* Main USP Video */}
         {uspVideo && (
           <div
-            className="mx-auto p-[13px] "
+            className="mx-auto p-[13px]  w-[85%]"
             style={{
               background: "#1B2444",
               boxShadow: "0 0 0 1.5px rgba(255,255,255,0.08), 0 32px 80px 0 rgba(0,0,0,0.55)",
             }}
           >
-            <div className="w-auto h-auto overflow-hidden lg:w-[974.651px] lg:h-[482.403px]">
+            <div className="w-full h-auto overflow-hidden lg:w-full lg:h-auto">
               <video
                 src={uspVideo}
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-fill"
+                className="w-full h-auto object-fill"
               />
             </div>
           </div>

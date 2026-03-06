@@ -186,7 +186,7 @@ export default function ServicesSlider({ data }) {
   return (
     <section
       id="services-slider"
-      className="w-full bg-[#050A1C] pt-[60px] pb-[60px] md:pt-[120px] md:pb-[120px] relative overflow-hidden"
+      className="w-full bg-[#000821] pt-[60px] pb-[60px] md:pt-[120px] md:pb-[120px] relative overflow-hidden"
     >
       <div className="web-width px-6">
         {/* Text Above Heading */}
@@ -269,14 +269,13 @@ export default function ServicesSlider({ data }) {
                       {serviceIconUrl && (
                         <Link
                           href={href || "#"}
-                          className="w-10 h-10 rounded-full bg-white/90 text-black flex items-center justify-center
-                                     hover:bg-white transition"
+                          className=" rounded-full text-black flex items-center justify-center"
                           aria-label={`Open ${title}`}
                         >
                           <img
                             src={serviceIconUrl}
                             alt={`${title} icon`}
-                            className="w-[20px] h-[20px] object-contain"
+                            className="w-[40px] h-[40px] object-contain"
                           />
                         </Link>
                       )}
@@ -309,8 +308,8 @@ export default function ServicesSlider({ data }) {
             <button
               ref={prevRef}
               type="button"
-              className="cursor-pointer w-[48px] h-[48px] rounded-full border border-white/20 text-white/80
-                         flex items-center justify-center hover:border-white/35 hover:text-white transition"
+              className="cursor-pointer w-[48px] h-[48px] rounded-full border border-white text-white
+                         flex items-center justify-center hover:border-white hover:text-white transition"
               aria-label="Previous"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 10 18" fill="none">

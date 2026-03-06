@@ -430,7 +430,7 @@ export default function TestimonialSlider({ data }) {
           </Swiper>{" "}
           {/* Bottom navigation */}{" "}
           {items.length > 1 ? (
-            <div className="mt-2 flex items-center justify-center gap-3">
+            <div className="mt-2 flex items-center justify-center gap-3 md:hidden">
               {" "}
               <button
                 ref={setPrev}

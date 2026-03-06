@@ -120,7 +120,7 @@ export default function ContentBlock({ data }) {
             {/* Image Column */}
             <div className="w-full md:w-1/2">
               {imgUrl && (
-                <div className="relative">
+                <div className="relative img-custom-bg">
                   <Image
                     src={imgUrl}
                     alt={imgAlt}

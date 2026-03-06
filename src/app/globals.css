@@ -290,3 +290,16 @@ border-bottom: 1px dashed #B9C0C7;}
 .border-fcustom{
 border-bottom: 0.5px dashed #b9c0c780;
 }
+
+.img-custom-bg img{
+width: 60%;
+    height: auto;
+    margin: 0 auto;
+    background: lch(89.5 4.52 251.42 / 0.35);
+    padding: 40px;
+    border-radius: 0;
+}
+.icon-48px{
+max-height: 48px;
+    width: auto;
+}

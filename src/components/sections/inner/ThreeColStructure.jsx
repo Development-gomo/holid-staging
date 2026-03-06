@@ -36,14 +36,14 @@ export default function ThreeColStructure({ data }) {
 
             // For dark: border only, no shadow. For light: shadow only, no border.
             const style = backgroundType === "dark"
-              ? { border: '1px solid #B9C0C7', boxShadow: 'none', padding: 32 }
+              ? { border: '1px solid #b9c0c780', boxShadow: 'none', padding: 32 }
               : { boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)', border: 'none', padding: 24 };
             return (
               <div key={idx} className="flex flex-col" style={style}>
                 {img ? (
                   <div className="w-full mb-4 overflow-hidden">
                    
-                    <Image src={img} alt={title || ""} width={70} height={70} className="object-contain" unoptimized/>
+                    <Image src={img} alt={title || ""} width={70} height={70} className="object-contain icon-48px" unoptimized/>
                   </div>
                 ) : null}
 

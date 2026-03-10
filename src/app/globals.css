@@ -303,3 +303,9 @@ width: 60%;
 max-height: 48px;
     width: auto;
 }
+.btn-row .btn-blue{
+      display: inline-block !important;
+    margin-top: 20px !important;
+    margin-right: 5px !important;
+    min-width: 120px !important;
+}

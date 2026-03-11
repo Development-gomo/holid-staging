@@ -37,7 +37,7 @@ export default function ThreeColStructure({ data }) {
             // For dark: border only, no shadow. For light: shadow only, no border.
             const style = backgroundType === "dark"
               ? { border: '1px solid #b9c0c780', boxShadow: 'none', padding: 32 }
-              : { boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)', border: 'none', padding: 24 };
+              : { boxShadow: 'none', border: 'none', padding: 24,backgroundColor: "#dbe2e959" };
             return (
               <div key={idx} className="flex flex-col" style={style}>
                 {img ? (

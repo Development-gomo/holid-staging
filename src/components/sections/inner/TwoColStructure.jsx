@@ -37,7 +37,7 @@ export default function TwoColStructure({ data }) {
             // For dark: border only, no shadow. For light: shadow only, no border.
             const style = backgroundType === "dark"
               ? { border: '1px solid #ffffff59', boxShadow: 'none', padding: 48 }
-              : { boxShadow: '0 4px 24px 0 rgba(0,0,0,0.10)', border: 'none', padding: 48 };
+              : { boxShadow: 'none', border: 'none', padding: 48,backgroundColor: "#dbe2e959" };
             return (
               <div key={idx} className="flex flex-col" style={style}>
                 {img ? (
@@ -46,7 +46,7 @@ export default function TwoColStructure({ data }) {
                   </div>
                 ) : null}
 
-                {title && <h3 className="fs24 fw500 text-lg font-medium mb-2 text-left ff-inter">{title}</h3>}
+                {title && <h3 className="fs24 fw500 text-lg font-medium text-left ff-inter leading-tight">{title}</h3>}
 
                 {desc && (
                   <div className="prose mt-4 max-w-none text-left" dangerouslySetInnerHTML={{ __html: desc }} />

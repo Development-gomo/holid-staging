@@ -24,7 +24,7 @@ export default async function Footer() {
   } = options || {};
 
   return (
-    <footer className="bg-[#0B1220] text-white">
+    <footer className="bg-[#000821] text-white">
       <style>{`
         .widget-title, .footer-social-title {
           font-size: 18px;

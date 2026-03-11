@@ -321,9 +321,9 @@ export default function RevenueCalculatorSection({
               <div className="bg-[#000821]">
                 <a
                   href="https://app.holid.io/register"
-                  className="w-full inline-flex text-[16px] bg-[#2F43FF] hover:opacity-95 transition text-white font-normal text-sm py-4 items-center justify-center gap-2"
+                  className="w-full inline-flex text-[16px] btn-blue calc-btn bg-[#2A3EF4] transition text-white font-normal text-sm py-4 items-center justify-center gap-2"
                 >
-                  <span className="inline-block w-1.5 h-1.5 bg-white" />
+                  {/* <span className="inline-block w-1.5 h-1.5 bg-white" /> */}
                   {ctaLabel}
                 </a>
               </div>

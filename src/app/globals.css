@@ -316,3 +316,11 @@ blockquote{
     padding-left: 10px;
     text-align: center;
 }
+a.btn-blue.calc-btn{
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center;
+}
+.btn-blue.calc-btn:before{
+      left: calc(50% + -50px);
+}

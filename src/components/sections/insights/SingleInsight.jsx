@@ -49,8 +49,7 @@ export default function BlogPostContent({ post }) {
       <section
         className="w-full py-16 md:py-24 text-white"
         style={{
-          backgroundImage:
-            "linear-gradient(90deg, #0a1a63 0%, #06154f 55%, #031141 100%)",
+           backgroundColor: "#000821",
         }}
       >
         <div className="web-width px-6">
@@ -66,7 +65,7 @@ export default function BlogPostContent({ post }) {
               )}
               {blogAuthor && <span>By {blogAuthor}</span>}
               {primaryCategory && (
-                <span className="px-3 py-1 bg-white/20 text-white text-xs rounded-sm">
+                <span className="px-3 py-1 bg-[#2A3EF4] text-white text-xs rounded-sm">
                   {primaryCategory}
                 </span>
               )}

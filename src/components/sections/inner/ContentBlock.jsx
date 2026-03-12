@@ -100,7 +100,7 @@ export default function ContentBlock({ data }) {
               <Link
                 href={btn.href}
                 target={btn.target}
-                className={`inline-flex px-6 py-3 rounded-md transition ${
+                className={`inline-flex px-6 py-3 btn-blue transition ${
                   bgType === "dark"
                     ? "bg-white text-black hover:opacity-90"
                     : "bg-black text-white hover:opacity-90"

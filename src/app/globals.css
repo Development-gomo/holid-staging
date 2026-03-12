@@ -324,3 +324,11 @@ a.btn-blue.calc-btn{
 .btn-blue.calc-btn:before{
       left: calc(50% + -50px);
 }
+.policy-data h2{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+.c-white-space{
+margin-top: 80px;
+}

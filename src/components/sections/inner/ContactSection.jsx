@@ -65,7 +65,7 @@ export default function ContactSection({ data }) {
             <div ref={hubRef} />
           </div>
 
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 overflow-hidden">
             {google_map_iframe ? (
               <div
                 className="w-full h-64 md:h-full"

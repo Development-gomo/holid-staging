@@ -251,19 +251,30 @@ export default function ServicesSlider({ data }) {
                         src={img}
                         alt={title || "Service"}
                         fill
-                        className="absolute inset-0 w-full h-full object-cover transition-all duration-300 group-hover:blur-sm"
+                        className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:blur-[10px] group-hover:scale-105"
                         sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                         priority={idx < 3}
                       />
                     ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/0 transition-all duration-300 group-hover:blur-sm" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/0 transition-all duration-500 group-hover:blur-[10px]" />
                     )}
 
+                    {/* Noise overlay — appears on hover */}
+                    <div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-[2]"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")`,
+                        backgroundRepeat: "repeat",
+                        backgroundSize: "200px 200px",
+                        mixBlendMode: "soft-light",
+                      }}
+                    />
+
                     {/* Dark Overlay */}
-                    <div className="overlay absolute inset-0 bg-black opacity-30"></div>
+                    <div className="overlay absolute inset-0 bg-black opacity-30 z-[1]"></div>
 
                     {/* Top row: title + icon button */}
-                    <div className="absolute inset-x-0 top-0 p-8 flex items-start justify-between">
+                    <div className="absolute inset-x-0 top-0 p-8 flex items-start justify-between z-[10]">
                       <p className="text-white text-lg md:!text-2xl leading-[26px] font-bld">{title}</p>
 
                       {serviceIconUrl && (
@@ -282,7 +293,7 @@ export default function ServicesSlider({ data }) {
                     </div>
 
                     {/* Bottom content */}
-                    <div className="absolute inset-x-0 bottom-0 p-8 md:bottom-[-65px] group-hover:bottom-0 transition-all duration-300">
+                    <div className="absolute inset-x-0 bottom-0 p-8 md:bottom-[-65px] group-hover:bottom-0 transition-all duration-300 z-[10]">
                       <p className="text-white mb-4 text-xs md:text-sm leading-relaxed max-w-[34ch] transform transition-transform duration-300 translate-y-0 group-hover:-translate-y-3">
                         {excerpt}
                       </p>

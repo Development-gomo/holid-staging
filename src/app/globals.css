@@ -332,3 +332,7 @@ a.btn-blue.calc-btn{
 .c-white-space{
 margin-top: 80px;
 }
+
+.btn-blue:hover{
+  background-color: #1B2FE0 !important;
+}

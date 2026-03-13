@@ -243,7 +243,7 @@ export default function ServicesSlider({ data }) {
               return (
                 <SwiperSlide key={post?.id || idx} className="!h-auto">
                   <div
-                    className={`group relative min-h-[460px] overflow-hidden bg-white/5 ring-1 ring-white/10`}
+                    className={`group relative min-h-[460px] overflow-hidden bg-white/5  ring-white/10`}
                   >
                     {/* Background image */}
                     {img ? (
